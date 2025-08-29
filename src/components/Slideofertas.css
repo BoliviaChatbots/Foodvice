@@ -1,0 +1,23 @@
+.swiperofertas {
+  width: 90%;
+  /*height: 200px;*/
+}
+.swiperofertas .swiper {
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.swiperofertas .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 500px;
+}
+
+.swiperofertas .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

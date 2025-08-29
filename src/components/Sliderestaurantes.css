@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap");
+
+.swiper-wrap {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--colorbla);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+.swiper {
+  width: 90%;
+}
+.card-resto-wrap {
+  width: 300px;
+  height: 420px;
+}
+.card-resto {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20% 6px 20% 6px;
+  overflow: hidden;
+  transition: 1s ease;
+  user-select: none;
+  color: var(--colortxt);
+  background-color: var(--colorpri);
+  border: 3px solid var(--colortxt);
+  /* background: var(--colorbg); */
+}
+
+.card-resto .img-bg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 300px;
+}
+
+.card-resto .title {
+  position: absolute;
+  top: 300px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.title h1 {
+  font-family: "Sunflower", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  opacity: 1;
+  transition: opacity 0.5s ease; /* lento al aparecer */
+}
+.swiper-slide-active .title h1 {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* rápido al desaparecer */
+}
+
+/* 📱 Responsive Pantallas Pequenas */
+@media (max-width: 768px) {
+  .swiper-slide-active .title h1 {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* rápido al desaparecer */
+    transition-delay: 1s;
+  }
+}
+
+.content {
+  position: absolute;
+  padding: 15px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  /* background: var(--colorbg); */
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    transparent,
+    var(--colorbg),
+    var(--colorbg)
+  );
+  border-radius: 20% 6px 20% 6px;
+  color: var(--colortxt);
+  opacity: 0;
+}
+.swiper-slide-active .content {
+  opacity: 1;
+  transition: 0.8s;
+  transition-delay: 0.5s;
+}
+
+.score {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 45px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--colormob);
+  background-color: yellow;
+  border-radius: 50%;
+  box-shadow: 0 50px 50px -20px rgba(50, 50, 93, 0.25),
+    0 30px 60px -30px rgba(0, 0, 0, 0.3),
+    inset 0 -2px 6px 0 rgba(10, 37, 64, 0.35);
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0;
+}
+.swiper-slide-active .score {
+  opacity: 1;
+  transition: 0.8s;
+  transition-delay: 0.9s;
+}
+.like-icon {
+  position: absolute;
+  top: 60px;
+  right: 12px;
+  width: 45px;
+  fill: var(--colortxt);
+  background-color: var(--colorpri);
+  border-radius: 50%;
+  opacity: 0;
+}
+.swiper-slide-active .like-icon {
+  opacity: 1;
+  transition: 0.8s;
+  transition-delay: 0.9s;
+}
+
+.text {
+  border-left: 5px solid var(--colorsec);
+  padding-left: 10px;
+  opacity: 0;
+}
+
+.swiper-slide-active .text {
+  opacity: 1;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.text h2 {
+  font-family: "Sunflower", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1px;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.swiper-slide-active .text h2 {
+  transform: translateY(0);
+  opacity: 1;
+  transition: 0.8s;
+  transition-delay: 0.8s;
+}
+
+.text p {
+  font-family: "Sunflower", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+  transform: translateY(50%);
+  opacity: 0;
+}
+
+.swiper-slide-active .text p {
+  transform: translateY(0);
+  opacity: 1;
+  transition: 0.8s;
+  transition-delay: 1.5s;
+}
+
+.genre {
+  display: flex;
+  gap: 10px;
+  margin: 0 20px;
+}
+
+.genre span {
+  font-family: "Sunflower", sans-serif;
+  color: var(--colormob);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 5px;
+  background: rgb(255, 255, 0);
+  border-radius: 3px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  /*border: 1px solid #ff5757;*/
+}
+
+.swiper-slide-active .genre span {
+  opacity: 1;
+  transition: 0.8s ease-out;
+  transition-delay: 2s;
+}
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+  border-radius: 20% 6px 20% 6px;
+}

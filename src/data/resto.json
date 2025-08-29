@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "titulo": "La Roma Boliviana",
+    "descripcion": "Las mejores pastas frescas hechas a mano.",
+    "imagen": "/restaurantes/food-1.jpg",
+    "estilo": "Italiana",
+    "direccion": "Av Moscu casi 7mo Anillo, calle Guadalupe 55",
+    "promo": "desc 30%",
+    "nivel": 8
+  },
+  {
+    "id": 2,
+    "titulo": "Parrilla Argentina",
+    "descripcion": "Carnes a la brasa con el auténtico sabor argentino.",
+    "imagen": "/restaurantes/food-2.jpg",
+    "estilo": "Argentina",
+    "direccion": "Av Alemana entre 3er y 4to Anillo",
+    "promo": "desc 25%",
+    "nivel": 9
+  },
+  {
+    "id": 3,
+    "titulo": "Sushis King Hu",
+    "descripcion": "Exquisito sushi preparado por chefs japoneses.",
+    "imagen": "/restaurantes/food-3.jpg",
+    "estilo": "Japonesa",
+    "direccion": "Barrio Equipetrol Av San Martin entre 3er y 4to Anillo",
+    "promo": "desc 30%",
+    "nivel": 8
+  },
+  {
+    "id": 4,
+    "titulo": "Café Gourmet",
+    "descripcion": "Cafés de especialidad con granos seleccionados.",
+    "imagen": "/restaurantes/food-4.jpg",
+    "estilo": "Cafetería",
+    "direccion": "Av santos Dumont 2do Anillo",
+    "promo": "Promo de Sabado",
+    "nivel": 6
+  },
+  {
+    "id": 5,
+    "titulo": "Café Gourmet",
+    "descripcion": "Café nacional con calidad de exportación.",
+    "imagen": "/restaurantes/food-5.jpg",
+    "estilo": "Cafetería",
+    "direccion": "Av Monsenor Salvatierra 1er Anillo",
+    "promo": "Promo 1ro Free",
+    "nivel": 8
+  },
+  {
+    "id": 6,
+    "titulo": "La Gachita",
+    "descripcion": "Las mejores parrilladas de Santa Cruz.",
+    "imagen": "/restaurantes/food-1.jpg",
+    "estilo": "Churrasqueria",
+    "direccion": "Av Paraguá entre 3er y 4to Anillo",
+    "promo": "Desc 20%",
+    "nivel": 8
+  },
+  {
+    "id": 7,
+    "titulo": "Salteñas Piraí",
+    "descripcion": "Las mejores salteñas vallegrandinas.",
+    "imagen": "/restaurantes/food-2.jpg",
+    "estilo": "Nacional",
+    "direccion": "Av Piraí casi 3er Anillo",
+    "promo": "Promo 2x1",
+    "nivel": 10
+  },
+  {
+    "id": 8,
+    "titulo": "Y se llama Perú",
+    "descripcion": "Comida tradicional peruana.",
+    "imagen": "/restaurantes/food-3.jpg",
+    "estilo": "Peruana",
+    "direccion": "Av Monsenor Salvatierra 2do Anillo",
+    "promo": "desc 20%",
+    "nivel": 8
+  },
+  {
+    "id": 9,
+    "titulo": "Pollos Chuy",
+    "descripcion": "El mejor y tradicional pollo de la región.",
+    "imagen": "/restaurantes/food-4.jpg",
+    "estilo": "Pollos",
+    "direccion": "Av Cañoto en el 1er Anillo",
+    "promo": "Promo de Lunes",
+    "nivel": 6
+  }
+]
