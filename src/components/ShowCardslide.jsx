@@ -121,7 +121,7 @@ const ShowCardslide = () => {
                                                 Oferta 50%
                                             </button>
 
-                                            <a href="/restaurants/restaurant/123" className="card-button">Reservar</a>
+                                            <a type="button" href="/restaurants/restaurant/123" className="card-button">Reservar</a>
 
                                         </div>
 

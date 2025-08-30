@@ -36,7 +36,7 @@ export default function Navbar() {
     return (
         <header className={`header ${darkMode ? "dark" : ""}`}>
             <div className="logo">
-                <NavLink to="/">Food vice</NavLink>
+                <NavLink to="/">Foodvice</NavLink>
             </div>
 
             <nav className={`menu-wrap ${menuOpen ? "show-hide" : ""}`}>

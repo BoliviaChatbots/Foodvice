@@ -1,17 +1,13 @@
 import React from 'react'
 import ShowCardslide from '../components/ShowCardslide'
 import AskandQuest from '../components/AskandQuest'
+import Login from '../components/Login'
 
-
-
-export const Showing = () => {
+export const LoginRegister = () => {
     return (
         <div>
-            <ShowCardslide />
-            <div className="container">
-                <AskandQuest />
-
-            </div>
+            <Login />
         </div>
     )
 }
+

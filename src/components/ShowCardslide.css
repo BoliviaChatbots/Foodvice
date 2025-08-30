@@ -63,7 +63,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 20px 20px;
 }
 
 .card .card-content .card-title {
@@ -109,8 +110,14 @@
   font-weight: 500;
 }
 
+.card-promo {
+  display: flex;
+  gap: 10px; /* opcional, espacio entre botones */
+}
+
 .card-promo .card-button {
-  width: 50%;
+  flex: 1; /* hace que cada botón ocupe el mismo ancho */
+  text-align: center; /* centra el texto dentro */
   color: var(--colortxt);
   text-transform: uppercase;
   padding: 5px;
