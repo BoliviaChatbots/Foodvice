@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Molle&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epunda+Sans:ital,wght@0,300..900;1,300..900&display=swap");
 
 * {
   margin: 0;
@@ -8,56 +9,76 @@
 }
 
 :root {
-  --colorpri: #004743;
-  --colorsec: #f2a900;
-  --colortxt: #ffffff;
-  --colorbg: rgba(0, 0, 0, 0.8);
-  --colorluz: hsl(152, 7%, 45%);
-  --colorbor: #004743;
-  --colorsha: #ffffff;
-
-  --colormob: #25262e;
-  --colorneg: black;
-  --colorbla: #ffffff;
-  --colormaster: #004743;
-}
-
-body {
-  background-color: var(--colorluz);
-}
-body.dark {
   --colorpri: #ffffff;
   --colorsec: #f2a900;
-  --colortxt: #004743;
+  --colortxt: #0f585a;
   --colorbg: rgba(255, 255, 255, 0.8);
   --colorluz: #ffffff;
+  --colormargen: rgba(0, 0, 0, 0.3);
   --colorbor: #f2a900;
   --colorsha: #f2a900;
 
   --colormob: #25262e;
   --colorneg: black;
   --colorbla: #ffffff;
-  --colormaster: #004743;
+  --colormaster: #12676a;
 }
+
+body.dark {
+  --colorpri: #12676a;
+  --colorsec: #f2a900;
+  --colortxt: #ffffff;
+  --colorbg: rgba(0, 0, 0, 0.8);
+  --colorluz: hsl(152, 7%, 45%);
+  --colormargen: rgba(255, 255, 255, 0.2);
+  --colorbor: #12676a;
+  --colorsha: #ffffff;
+
+  --colormob: #25262e;
+  --colorneg: black;
+  --colorbla: #ffffff;
+  --colormaster: #12676a;
+}
+
+body {
+  background-color: var(--colorluz);
+}
+
 .d-none {
   opacity: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .header {
+  /* position: sticky;
+  top: 0; se pega al top al hacer scroll */
   background-color: var(--colorpri);
   width: 100%;
   height: 70px;
   padding: 0 5%;
-  box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.8);
+  margin: 20px 0;
+  /* box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.8); */
   display: flex;
   align-items: center;
-  position: relative;
+  /* position: relative; */
+  /* transition: background-color 0.3s ease; */
   z-index: 99;
 }
+
 .header .logo {
-  flex: 3;
+  display: flex;
+  align-items: center;
+  /* gap: 15px; */
 }
-.header .logo a {
+.logo-img {
+  /* width: 45px;*/
+  height: 70px;
+  padding-top: 5px;
+}
+/* .header .logo a {
   font-family: "Molle", cursive;
   font-weight: 400;
   font-style: italic;
@@ -65,12 +86,12 @@ body.dark {
   font-size: 45px;
   font-weight: 600;
   letter-spacing: -1px;
-  /*text-transform: uppercase;*/
+  text-transform: uppercase;
   text-decoration: none;
 }
 .header .logo a:hover {
   color: var(--colorsec);
-}
+} */
 .menu-wrap {
   flex: 6;
 }
@@ -88,7 +109,7 @@ body.dark {
   margin: 0 5px;
 }
 .menu-wrap ul > li > a {
-  font-size: 15px;
+  font-size: 18px;
   text-decoration: none;
   color: var(--colortxt);
   font-weight: 600;

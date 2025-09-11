@@ -36,22 +36,33 @@ export default function Navbar() {
     return (
         <header className={`header ${darkMode ? "dark" : ""}`}>
             <div className="logo">
-                <NavLink to="/">Foodvice</NavLink>
+                <NavLink to="/">
+                    <img src="/logos/logobgnull.png" alt="Foodvice" className="logo-img" />
+                </NavLink>
             </div>
 
             <nav className={`menu-wrap ${menuOpen ? "show-hide" : ""}`}>
                 <ul>
                     <li>
                         <NavLink
-                            to="/"
+                            to="/login"
                             end
+                            onClick={closeMenu}
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            INGRESAR
+                        </NavLink>
+                    </li>
+                    {/* <li>
+                        <NavLink
+                            to="/"
                             onClick={closeMenu}
                             className={({ isActive }) => (isActive ? "active" : "")}
                         >
                             Inicio
                         </NavLink>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                         <NavLink
                             to="/contact"
                             onClick={closeMenu}
@@ -66,7 +77,7 @@ export default function Navbar() {
                             onClick={closeMenu}
                             className={({ isActive }) => (isActive ? "active" : "")}
                         >
-                            Show Room
+                            ShowRoom
                         </NavLink>
                     </li>
                     <li>
@@ -77,21 +88,13 @@ export default function Navbar() {
                         >
                             Restaurantes
                         </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/login"
-                            onClick={closeMenu}
-                            className={({ isActive }) => (isActive ? "active" : "")}
-                        >
-                            Login
-                        </NavLink>
-                    </li>
+                    </li> */}
+
                 </ul>
             </nav>
 
-            <div className="main-toggle-wrap">
-                <button onClick={toggleDarkMode} className="darkmode-toggle">
+            <div className="main-toggle-wrap hidden">
+                <button onClick={toggleDarkMode} className="darkmode-toggle hidden">
                     <box-icon type='solid' name='moon' className='moon-icon'></box-icon>
                     <box-icon type='solid' name='sun' className='sun-icon'></box-icon>
                 </button>

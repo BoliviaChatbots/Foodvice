@@ -1,0 +1,53 @@
+.navbar-container {
+  height: 200px; /* espacio antes de que el navbar se pegue */
+}
+
+/* Navbar sticky */
+.navbar {
+  position: sticky;
+  top: 0px; /* para mobile */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+/* Cambiar offset en pantallas grandes */
+
+/* Cuando se queda fijo en top */
+.navbar.stuck {
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.login-btn {
+  background: #007bff;
+  color: white;
+}
+
+.profile-btn {
+  background: #28a745;
+  color: white;
+}
+
+.special-btn {
+  background: #ff9800;
+  color: white;
+}

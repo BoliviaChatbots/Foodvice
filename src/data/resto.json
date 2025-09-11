@@ -36,7 +36,7 @@
     "imagen": "/restaurantes/food-4.jpg",
     "estilo": "Cafetería",
     "direccion": "Av santos Dumont 2do Anillo",
-    "promo": "Promo de Sabado",
+    "promo": "desc 50%",
     "nivel": 6
   },
   {
@@ -46,7 +46,7 @@
     "imagen": "/restaurantes/food-5.jpg",
     "estilo": "Cafetería",
     "direccion": "Av Monsenor Salvatierra 1er Anillo",
-    "promo": "Promo 1ro Free",
+    "promo": "desc 40%",
     "nivel": 8
   },
   {
