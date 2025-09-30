@@ -1,16 +1,38 @@
+import { useParams } from "react-router-dom";
+import restos from "../data/resto.json"; // Aquí tienes todos los restaurantes
 
-import SliderDemo from '../components/SliderDemo'
-import Sliderestaurantes from '../components/Sliderestaurantes'
-import Slideofertas from "../components/Slideofertas";
-import Particulas from '../components/ParticleBackground';
-import Banner from '../components/Banner';
+const Restaurantes = () => {
+    const { id } = useParams(); // obtiene el id desde la URL
+    const restaurant = restos.find((rest) => rest.id.toString() === id);
 
+    if (!restaurant) {
+        return <h2>Restaurante no encontrado 😢</h2>;
+    }
 
-export const Restaurantes = () => {
     return (
-        <div>
+        <div style={{ padding: "20px" }}>
+            <h1>{restaurant.titulo}</h1>
+            <img
+                src={restaurant.imagen}
+                alt={restaurant.titulo}
+                style={{ width: "400px", borderRadius: "10px" }}
+            />
+            <p><strong>Dirección:</strong> {restaurant.direccion}</p>
+            <p><strong>Estilo:</strong> {restaurant.estilo}</p>
+            <p><strong>Descripción:</strong> {restaurant.descripcion}</p>
 
-            <Sliderestaurantes />
+            <h3>Plato recomendado 🍽️</h3>
+            {/* <img
+                src={restaurant.comidaImagen || "/images/default-food.png"}
+                alt={restaurant.comidaNombre}
+                style={{ width: "200px" }}
+            />
+            <p>{restaurant.comidaNombre}</p>
+            <p><strong>Precio:</strong> {restaurant.comidaPrecio ? `${restaurant.comidaPrecio} bs.` : "No disponible"}</p>
+            <p><strong>Promo:</strong> {restaurant.promo || "Sin promo"}</p> */}
         </div>
-    )
-}
+    );
+};
+
+export default Restaurantes;
+

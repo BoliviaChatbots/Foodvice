@@ -11,10 +11,13 @@ import { Autoplay, Navigation, Pagination, EffectCoverflow } from 'swiper/module
 import Cardslide from './Cardslide';
 import ParticleBackground from './ParticleBackground';
 import FoodParticles from './FoodParticles';
+import TitleSlide from './TitleSlide';
+import restaurants from "../data/resto.json";
 
 const Sliderestaurantes = () => {
     return (
         <>
+            <TitleSlide text="Nuestras Ofertas 🎁" />
             <div className='swiper-wrap'>
 
                 <Swiper
@@ -24,8 +27,8 @@ const Sliderestaurantes = () => {
                     slidesPerView={'auto'}
                     coverflowEffect={{
                         rotate: 0,   //Rotacion de la card
-                        stretch: 0, //Separacion entre imag
-                        depth: 100,
+                        stretch: -10, //Separacion entre imag
+                        depth: 0,
                         modifier: 1,
                         slideShadows: true,
                     }}
@@ -39,26 +42,29 @@ const Sliderestaurantes = () => {
                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
 
                 >
-                    <SwiperSlide className='card-resto-wrap'>
-                        <div id='card-resto' className='card-resto'>
-                            <img src="/restaurantes/food-1.jpg" alt="" className='img-bg' />
-                            <div className="title">
-                                <h1>Sabor Cochabambino</h1>
-                            </div>
-                            <div className="content">
-                                <div className="score">8.5</div>
-                                <box-icon name='smile' size='lg' border='circle' className='like-icon bx-burst-hover'></box-icon>
-                                <div className="text">
-                                    <h2>Sabor Cochabambino</h2>
-                                    <p>Lorem ipsum dolor sit amet dicta ullam minus necessitatibus. (amet dicta ullam minus necessitatibus)</p>
+                    {restaurants.map((item) => (
+
+                        <SwiperSlide className='card-resto-wrap'>
+                            <div id='card-resto' className='card-resto'>
+                                <img src="/restaurantes/food-1.jpg" alt="" className='img-bg' />
+                                <div className="title">
+                                    <h1>{item.titulo}</h1>
                                 </div>
-                                <div className="genre">
-                                    <span style={{ "--i": 1 }}>des 30%</span>
-                                    <span style={{ "--i": 2 }}>Reservar</span>
+                                <div className="content">
+                                    <div className="score">8.5</div>
+                                    <box-icon type='solid' name='heart' color="red" size='lg' border='circle' className='like-icon bx-burst-hover'></box-icon>
+                                    <div className="text">
+                                        <h2>{item.titulo}</h2>
+                                        <p>{item.direccion}</p>
+                                    </div>
+                                    <div className="genre">
+                                        <span style={{ "--i": 1 }}>des 30%</span>
+                                        <span style={{ "--i": 2 }}>Reservar</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </SwiperSlide>
+                        </SwiperSlide>
+                    ))}
                     <SwiperSlide className='card-resto-wrap'>
                         <div id='card-resto' className='card-resto'>
                             <img src="/restaurantes/food-2.jpg" alt="" className='img-bg' />

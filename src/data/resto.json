@@ -3,21 +3,27 @@
     "id": 1,
     "titulo": "La Roma Boliviana",
     "descripcion": "Las mejores pastas frescas hechas a mano.",
-    "imagen": "/restaurantes/food-1.jpg",
+    "imagen": "/restaurantes/1/portada.jpg",
     "estilo": "Italiana",
     "direccion": "Av Moscu casi 7mo Anillo, calle Guadalupe 55",
     "promo": "desc 30%",
-    "nivel": 8
+    "nivel": 8.2,
+    "comidaImagen": "/restaurantes/1/food-1.jpg",
+    "comidaNombre": "Pizza Hawayana",
+    "comidaPrecio": 50
   },
   {
     "id": 2,
     "titulo": "Parrilla Argentina",
     "descripcion": "Carnes a la brasa con el auténtico sabor argentino.",
-    "imagen": "/restaurantes/food-2.jpg",
+    "imagen": "/restaurantes/2/portada.jpg",
     "estilo": "Argentina",
     "direccion": "Av Alemana entre 3er y 4to Anillo",
     "promo": "desc 25%",
-    "nivel": 9
+    "nivel": 9.5,
+    "comidaImagen": "/restaurantes/2/food-1.jpg",
+    "comidaNombre": "Cuadril Doble",
+    "comidaPrecio": 80
   },
   {
     "id": 3,
@@ -31,7 +37,7 @@
   },
   {
     "id": 4,
-    "titulo": "Café Gourmet",
+    "titulo": "Café Colombiano",
     "descripcion": "Cafés de especialidad con granos seleccionados.",
     "imagen": "/restaurantes/food-4.jpg",
     "estilo": "Cafetería",
@@ -51,7 +57,7 @@
   },
   {
     "id": 6,
-    "titulo": "La Gachita",
+    "titulo": "La Gauchita",
     "descripcion": "Las mejores parrilladas de Santa Cruz.",
     "imagen": "/restaurantes/food-1.jpg",
     "estilo": "Churrasqueria",
@@ -66,7 +72,7 @@
     "imagen": "/restaurantes/food-2.jpg",
     "estilo": "Nacional",
     "direccion": "Av Piraí casi 3er Anillo",
-    "promo": "Promo 2x1",
+    "promo": "Prom 2x1",
     "nivel": 10
   },
   {
@@ -86,7 +92,7 @@
     "imagen": "/restaurantes/food-4.jpg",
     "estilo": "Pollos",
     "direccion": "Av Cañoto en el 1er Anillo",
-    "promo": "Promo de Lunes",
+    "promo": "Prom 2x1",
     "nivel": 6
   }
 ]

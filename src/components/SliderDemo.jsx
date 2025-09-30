@@ -4,9 +4,10 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 
 import "./SliderDemo.css";
-// import data from "../data/resto.json";
 
-import { fetchGetRestaurants } from "../services/Restaurantes/apiGetRestaurants.js";
+import restos from "../data/resto.json";
+// import { fetchGetRestaurants } from "../services/Restaurantes/apiGetRestaurants.js";
+
 import ParticleBackground from "./ParticleBackground";
 import FoodParticles from "./FoodParticles";
 import { useState, useEffect } from "react";
@@ -18,16 +19,17 @@ export default function SliderResto() {
     useEffect(() => {
         const getResto = async () => {
             try {
-                const restos = await fetchGetRestaurants()
+                // const restos = await fetchGetRestaurants()
                 const restData = restos.map((rest) => {
-                    const nombre = rest.name
+                    const nombre = rest.titulo
                     return {
                         id: rest.id,
                         nombre,
                         imagen: rest.imagen,
-                        estilo: rest.cuisine?.name,
-                        direccion: rest.street,
-                        descripcion: rest.description,
+                        estilo: rest.estilo,
+                        // estilo: rest.cuisine?.name,
+                        direccion: rest.direccion,
+                        descripcion: rest.descripcion,
                     };
                 });
                 setRestaurants(restData)
@@ -51,15 +53,15 @@ export default function SliderResto() {
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 0,
-                        depth: 100,
+                        depth: 0,
                         modifier: 1,
                         slideShadows: false,
                     }}
-                    autoplay={{        //Auto Desplazar
-                        delay: 3500,
-                        disableOnInteraction: false,
-                    }}
-                    spaceBetween={30}
+                    // autoplay={{        //Auto Desplazar
+                    //     delay: 3500,
+                    //     disableOnInteraction: false,
+                    // }}
+                    spaceBetween={10}
                     loop={false}
                     navigation={false}
                     modules={[EffectCoverflow, Autoplay]}

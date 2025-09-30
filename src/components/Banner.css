@@ -5,175 +5,171 @@
   padding-left: 5%;
   margin-right: auto;
   margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .banner {
-  position: relative;
   width: 100%;
-  height: 350px;
+  min-height: 350px;
   border-radius: 20px;
   background: var(--colortxt);
   color: var(--colorpri);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .banner-overlay {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: center;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .banner-overlay img {
-  opacity: 1; /* arranca invisible */
-  transform: scale(0.5);
-  /* animation: moveLeft 1.5s ease-in forwards; */
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
-@keyframes moveLeft {
-  0% {
-    right: -100px; /* empieza fuera de la pantalla a la derecha */
-    opacity: 0; /* invisible */
-  }
-  100% {
-    right: 10%; /* posición final */
-    opacity: 1; /* visible */
-  }
+.banner-overlay .text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .banner-title {
-  position: absolute;
-  top: 100px;
-  left: 10%;
-  opacity: 1;
-  /* animation: moveRigth 1s ease-in forwards; */
-
-  /* font-family: "Roboto", sans-serif;
-  font-size: 4rem;
-  font-weight: 400; */
-
-  font-family: "Epunda Sans", sans-serif;
-  font-size: 4rem;
-  font-weight: 400;
-
-  font-style: italic;
-}
-@keyframes moveRigth {
-  0% {
-    left: -50px; /* empieza fuera de la pantalla a la derecha */
-  }
-  100% {
-    left: 10%; /* posición final */
-    opacity: 1; /* visible */
-  }
-}
-.banner-slogan {
-  position: absolute;
-  top: 50%;
-  left: 15%;
-  opacity: 1; /* arranca invisible banner-slogan*/
-
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: clamp(1.3rem, 4vw, 4rem);
+  font-weight: 500;
+}
+
+.banner-slogan {
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-weight: 300;
 }
 
 .search-box {
   background-color: var(--colorpri);
-  padding: 20px;
-  border-radius: 6px;
-  border: 2px groove var(--colortxt);
-
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 200px;
-  padding: 200px;
-
-  width: 80%;
-  /* max-width: 1000px; */
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1000px; /* límite ancho en pantallas grandes */
+  margin: 1rem auto;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
-.search-form {
+.banner-search-form {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap; /* permite que baje a otra línea si no entra */
+  align-items: center;
+  justify-content: space-between; /* distribuye en fila */
+  gap: 10px;
+  flex-wrap: nowrap; /* evita que bajen de línea */
 }
 
-.search-form input {
-  width: 60%;
-  padding: 12px;
-  border: 2px groove var(--colorbor);
-  border-radius: 4px;
-  font-size: 14px;
-  min-width: 120px; /* evita que se encoja demasiado */
-}
-.search-form select {
-  width: 15%;
-  padding: 12px;
-  border: 2px groove var(--colorbor);
-  border-radius: 4px;
-  font-size: 14px;
-  min-width: 120px; /* evita que se encoja demasiado */
+.banner-search-form .selector-banner {
+  flex: 1 1 200px;
+  box-sizing: border-box;
 }
 
-.search-form button {
-  width: 15%;
-  background: #ff9800;
+.input-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex: 2 1; /* ocupa más espacio que el select */
+  gap: 10px;
+}
+.banner-search-form .input-wrap input {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  padding: 0;
+  margin: 0 10px 0 0;
   border: none;
-  color: white;
-  font-weight: bold;
+  border-bottom: 2px solid var(--colormaster);
+  outline: none;
+  border-radius: 3px;
+  color: var(--colormaster);
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 500;
+}
+.banner-search-form .input-wrap input::placeholder {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 300;
+  color: var(--colormaster); /* el color que quieras */
+  opacity: 1; /* opcional: asegura que el color se vea bien en algunos navegadores */
+}
+
+.banner-search-form button {
+  flex: 0 0 150px; /* fija ancho preferido */
+  min-width: 150px;
+  height: 44px; /* misma altura que input */
+  line-height: 44px;
+  border: none;
+  background: var(--colormaster);
+  color: var(--colorbla);
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
   text-transform: uppercase;
-  padding: 12px 24px;
-  border-radius: 4px;
+  padding: 0 20px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.search-form button:hover {
-  background-color: var(--colorsec);
+.banner-search-form button:hover {
+  background: var(--colorsec);
   transition: 0.5s;
 }
 
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .banner {
-    height: 250px;
+/* 🔹 Responsivo: a partir de 992px hacia abajo */
+@media (max-width: 992px) {
+  .banner-overlay img {
+    width: 60%; /* que no quede muy pequeña ni muy grande */
+  }
+  .banner-search-form {
+    flex-direction: column; /* 🔥 apila elementos */
+    align-items: stretch;
+    gap: 5px;
   }
 
-  .banner-title {
-    font-size: 32px;
-  }
-
-  .search-box {
-    width: 95%;
-    bottom: -20px;
-  }
-
-  .search-form {
-    flex-direction: column;
-  }
-
-  .search-form input,
-  .search-form select,
-  .search-form button {
+  .banner-search-form .selector-banner,
+  .banner-search-form input,
+  .banner-search-form button {
     width: 100%;
+    flex: unset;
+    min-width: 0;
+    height: 48px; /* un pelín mayor en móvil */
+    line-height: 48px;
+  }
+  /* reduce el font-size del input en pantallas pequeñas */
+  .banner-search-form input {
+    font-size: 16px;
   }
 }
-/* Pantallas grandes */
-@media (min-width: 768px) {
-  .search-box {
-    position: absolute;
-    bottom: 10px;
-  }
-  /* ajusta el ancho según lo que consideres "grande" */
+@media (max-width: 768px) {
   .banner-overlay img {
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    transform: scale(1);
-    opacity: 1;
-    display: inline-block;
-    /* animation: moveLeft 1s ease forwards; */
+    width: 50%; /* que no quede muy pequeña ni muy grande */
+  }
+}
+
+@media (max-width: 512px) {
+  .banner {
+    padding: 5px;
+  }
+  .banner-overlay {
+    justify-content: space-around;
+  }
+  .banner-overlay img {
+    width: 40%; /* que no quede muy pequeña ni muy grande */
   }
 }

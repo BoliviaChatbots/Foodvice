@@ -1,0 +1,22 @@
+.title-slide h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: start;
+  color: var(--colorneg);
+
+  margin: 40px 0 5px;
+}
+
+@media (max-width: 768px) {
+  .title-slide h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 512px) {
+  .title-slide h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}

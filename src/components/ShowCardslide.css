@@ -3,6 +3,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap");
 
+/* Aplica a ambas flechas */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000000; /* color de la flecha */
+  background: #fafafa; /* fondo circular */
+  border-radius: 50%; /* redondear */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  top: 40%; /* 👈 flechas un poco más arriba */
+}
+.swiper-button-next {
+  right: 33px; /* más pegada al slider */
+}
+
+/* Efecto hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  /* background: var(--colormaster); */
+  transform: scale(1.1);
+}
+
+/* Ajustar tamaño de la flecha */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px; /* tamaño de la flecha */
+  font-weight: bold;
+}
+
 .wrapper {
   height: 500px;
   display: flex;
@@ -12,22 +45,27 @@
 }
 
 .card-list {
-  width: 95%;
+  width: 100%;
   padding-right: 10px;
   overflow: hidden;
 }
 .wrapper .card {
-  min-width: 280px;
-  /* width: 350px; */
-  height: 450px;
-  margin: 0 15px 15px 0;
+  min-width: 250px;
+  height: 430px;
+  margin: 0 15px 20px 0;
   display: flex;
   flex-direction: column;
-  color: var(--colortxt);
+  color: var(--colorneg);
   background: var(--colorpri);
-  border-radius: 15px;
-  border: 2px solid var(--colorsha);
-  box-shadow: 6px 6px 5px -3px var(--colorsha);
+  /* border-radius: 7px; */
+  /* border: 1px solid var(--ccborde); */
+  /* box-shadow: 6px 6px 5px -3px var(--ccborde); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.wrapper .card:hover {
+  box-shadow: 8px 8px 6px -2px var(--ccshadow);
+  /* box-shadow: 6px 12px 20px -5px var(--ccborde); */
+  transform: translate(-3px, -3px); /* sube y crece un poco */
 }
 .card-image {
   width: 100%;
@@ -38,25 +76,7 @@
 .card .card-image img {
   width: 100%;
   height: 100%;
-  padding: 3px;
-  border-radius: 15px;
-  /* object-fit: cover; */
-}
-
-.card .card-image .card-tag {
-  position: absolute;
-  bottom: -5px;
-  /* top: 25px; */
-  left: 25px;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0 25px;
-  color: var(--colorpri);
-  background: var(--colorsha);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .card .card-content {
@@ -64,7 +84,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 20px;
+  padding: 10px 5px;
+}
+.card .card-content .card-tag-nivel {
+  display: flex;
+  align-items: center;
+}
+.card .card-content .card-tag-nivel .card-star {
+  margin-left: auto;
+  fill: var(--colorsec);
+  color: var(--colortxt);
+}
+.card .card-content .card-tag-nivel .card-level {
+  margin-left: 5px;
+  color: var(--colortxt);
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .card .card-content .card-title {
@@ -72,26 +107,26 @@
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 0.9;
-  margin-bottom: 10px;
+  margin: 10px 0px;
 }
 
 .card .card-content .card-text {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .card .card-content .card-profile {
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 .card .card-content .card-profile img {
-  width: 50px;
+  width: 70px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 5px;
 }
 
 .card .card-content .card-profile .card-profile-info {
@@ -118,15 +153,24 @@
 .card-promo .card-button {
   flex: 1; /* hace que cada botón ocupe el mismo ancho */
   text-align: center; /* centra el texto dentro */
-  color: var(--colortxt);
+  justify-content: center;
+  color: var(--colorpri);
   text-transform: uppercase;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 3px 5px;
+  border-radius: 5px;
 
   font-family: "Inter", sans-serif;
-  font-size: 1rem;
+  font-size: 12px;
   font-weight: 600;
-  text-decoration: none;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--colorsec) 0%, var(--colorsec) 100%);
+  background: black;
+  text-decoration: none;
+  border: none;
+}
+
+@media (width <= 512px) {
+  .wrapper .card {
+    min-width: 250px;
+    height: 410px;
+  }
 }
