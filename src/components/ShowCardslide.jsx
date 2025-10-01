@@ -15,6 +15,7 @@ import './ShowCardslide.css'
 // import { fetchGetRestaurants } from "../services/Restaurantes/apiGetRestaurants.js";
 import restos from "../data/resto.json";
 import TitleSlide from './TitleSlide';
+import { nameToURL } from '../services/utils'
 
 const ShowCardslide = () => {
 
@@ -27,6 +28,7 @@ const ShowCardslide = () => {
                 const restData = restos.map((rest) => {
                     const nombre = rest.titulo
                     const direccion = rest.direccion
+                    const url = nameToURL(rest.titulo)
                     return {
                         id: rest.id,
                         nombre,
@@ -45,6 +47,7 @@ const ShowCardslide = () => {
                             : `/restaurantes/default-food.png`, // <-- aquí coloca la ruta de tu imagen por defecto
 
                         promo: rest.promo,
+                        url,
                     };
                 });
                 setRestaurants(restData)
@@ -144,7 +147,7 @@ const ShowCardslide = () => {
                                                 >
                                                     {item.promo}
                                                 </button>
-                                                <Link to={`/restaurants/${item.id}`} className="card-button">
+                                                <Link to={`/restaurants/${item.url}`} className="card-button">
                                                     Reservar
                                                 </Link>
 

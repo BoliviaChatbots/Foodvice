@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
+import { nameToURL } from '../services/utils';
 import restos from "../data/resto.json"; // Aquí tienes todos los restaurantes
 
 const Restaurantes = () => {
-    const { id } = useParams(); // obtiene el id desde la URL
-    const restaurant = restos.find((rest) => rest.id.toString() === id);
+    const { url } = useParams(); // obtiene el id desde la URL
+    const restaurant = restos.find((rest) => nameToURL(rest.titulo) === url);
 
     if (!restaurant) {
         return <h2>Restaurante no encontrado 😢</h2>;
