@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 500px;
   width: 100%;
   background: url("/loginregister/fondo.jpg") center/cover no-repeat;
   font-family: "Inter", "Roboto", "Sunflower", sans-serif;
@@ -31,7 +31,7 @@
 @media (max-width: 550px) {
   /* Estilos que se aplican solo cuando la pantalla es <= 500px */
   .form-container {
-    width: 330px;
+    width: 95%;
   }
 }
 

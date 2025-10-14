@@ -61,7 +61,7 @@ const ShowCardslide = () => {
 
     return (
         <>
-            <TitleSlide text="Los Mas Recomendados ✨" />
+            <TitleSlide text="Lo mas recomendado" />
             <div className="container">
                 <div className="wrapper">
                     <Swiper className="card-list"

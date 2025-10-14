@@ -65,7 +65,7 @@
 .wrapper .card:hover {
   box-shadow: 8px 8px 6px -2px var(--ccshadow);
   /* box-shadow: 6px 12px 20px -5px var(--ccborde); */
-  transform: translate(-3px, -3px); /* sube y crece un poco */
+  transform: translate(-1px, -1px); /* sube y crece un poco */
 }
 .card-image {
   width: 100%;

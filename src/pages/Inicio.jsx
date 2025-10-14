@@ -13,7 +13,7 @@ export const Inicio = () => {
             <ShowCardslide />
             <Sliderestaurantes />
 
-            <SliderResto />
+
 
         </div>
     )

@@ -1,0 +1,51 @@
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.avatar-large {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid var(--colormaster);
+  object-fit: cover;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.avatar-section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--colormaster);
+  margin: 5px 0;
+}
+
+.avatar-section p {
+  font-size: 15px;
+  color: #666;
+  margin: 0;
+}
+
+/* Botones dentro del modal */
+.secondary-btn {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.secondary-btn {
+  background: transparent;
+  border: 1px solid var(--colormaster);
+  color: var(--colormaster);
+}
+
+.secondary-btn:hover {
+  background: var(--colormaster);
+  color: var(--colorbla);
+}

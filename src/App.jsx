@@ -10,11 +10,16 @@ import { Inicio } from "./pages/Inicio";
 import { Showing } from "./pages/Showing";
 import { LoginRegister } from "./pages/LoginRegister";
 import Footer from "./components/Footer";
-import { Datainc } from "./components/Datainc";
+
 import AskandQuest from "./components/AskandQuest";
 import Banner from "./components/Banner";
 import LoginSide from "./components/LoginSide";
+import RegisterSide from "./components/RegisterSide";
+import EditUser from "./components/EditUser";
+import LoginAvatar from "./components/LoginAvatar";
+
 function App() {
+
   return (
     <>
       {/* <Datainc loggedIn={false} userImage="/logoblanco.png" /> */}
@@ -22,6 +27,9 @@ function App() {
 
       <Navbar />
       <LoginSide />
+      <RegisterSide />
+      <LoginAvatar />
+      <EditUser />
 
       <Routes>
         <Route path="/" element={<Inicio />} />

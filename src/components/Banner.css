@@ -79,6 +79,7 @@
 }
 
 .input-wrap {
+  padding-left: 30px;
   display: flex;
   align-items: center;
   justify-content: left;
@@ -133,6 +134,10 @@
 
 /* 🔹 Responsivo: a partir de 992px hacia abajo */
 @media (max-width: 992px) {
+  .input-wrap {
+    padding-left: 0;
+  }
+
   .banner-overlay img {
     width: 60%; /* que no quede muy pequeña ni muy grande */
   }
@@ -143,7 +148,6 @@
   }
 
   .banner-search-form .selector-banner,
-  .banner-search-form input,
   .banner-search-form button {
     width: 100%;
     flex: unset;
@@ -154,6 +158,11 @@
   /* reduce el font-size del input en pantallas pequeñas */
   .banner-search-form input {
     font-size: 16px;
+    width: 100%;
+    flex: unset;
+    min-width: 0;
+    height: 48px; /* un pelín mayor en móvil */
+    line-height: 48px;
   }
 }
 @media (max-width: 768px) {

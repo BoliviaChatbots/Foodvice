@@ -17,7 +17,7 @@ import restaurants from "../data/resto.json";
 const Sliderestaurantes = () => {
     return (
         <>
-            <TitleSlide text="Nuestras Ofertas 🎁" />
+            <TitleSlide text="Nuestras Ofertas" />
             <div className='swiper-wrap'>
 
                 <Swiper

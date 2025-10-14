@@ -13,6 +13,7 @@
 :root {
   --colorpri: #ffffff;
   --colorsec: #f2a900;
+  /* --colortxt: #00564a; */
   --colortxt: #12676a;
 
   --colorluz: #ffffff;
@@ -21,7 +22,7 @@
   --colorsha: #f2a900;
 
   --ccborde: rgba(0, 0, 0, 0.4);
-  --ccshadow: rgba(0, 0, 0, 0.8);
+  --ccshadow: rgba(0, 0, 0, 0.4);
 
   --colormob: #25262e;
   --colorneg: black;
@@ -32,8 +33,34 @@
   --colorhover: #1e9ca0;
 }
 
-body {
-  background-color: var(--colorluz);
+/* Scrollbar global elegante y adaptable */
+* {
+  /*scrollbar-width: thin;  Firefox: delgada */
+  scrollbar-color: var(--colormaster) transparent; /* thumb | track */
+}
+
+/* Scrollbar en navegadores basados en WebKit */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--colormaster);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+:hover::-webkit-scrollbar {
+  width: 12px; /* ancho al pasar el mouse */
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--colormaster) 95%, white 5%);
+}
+
+::-webkit-scrollbar-track {
+  background: gray;
 }
 
 .d-none {
@@ -66,7 +93,7 @@ body {
   align-items: center;
 }
 
-.logo-img {
+.logo-img-nav {
   height: 70px;
   padding-top: 5px;
 }
@@ -77,8 +104,10 @@ body {
   list-style: none;
   margin-right: 5%;
 }
+/* === BOTÓN LOGIN === */
 
-.menu-nav ul > li > a {
+.menu-nav ul > li > button {
+  border: none;
   font-family: "Epunda Sans", sans-serif;
   font-size: 20px;
   font-weight: 500;
@@ -92,30 +121,72 @@ body {
   border-radius: 5px;
   transition: background 0.3s;
 }
-.menu-nav ul > li > a.active,
-.menu-nav ul > li > a:hover {
+.menu-nav ul > li > button.active,
+.menu-nav ul > li > button:hover {
   background: var(--colorsec);
   transition: 0.5s ease;
+}
+
+/* === USUARIO LOGUEADO === */
+.user-info {
+  display: flex;
+  align-items: center;
+  background: var(--colorbla);
+  border-bottom: 2px solid var(--colormaster);
+  /* border-top: 2px solid var(--colormaster); */
+  border-radius: 5px;
+  padding: 5px 15px 5px 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  /* , transform 0.2s ease; */
+}
+
+.user-info:hover {
+  border-bottom: 2px solid var(--colorsec);
+  /* background: var(--colorsec); */
+  /* transform: scale(1.03); */
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  object-fit: cover;
+  border: 2px solid var(--colorbla);
+  margin-right: 10px;
+  background-color: #fff;
+}
+
+.user-name {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--colormaster);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px; /* evita desbordes */
 }
 
 /* ===========Responsive Code============ */
 
 @media (width <= 1200px) {
-  .logo-img {
+  .logo-img-nav {
     height: 65px;
     padding-top: 5px;
   }
-  .menu-nav ul > li > a {
+  .menu-nav ul > li > button {
     font-size: 20px;
     padding: 10px 30px;
   }
 }
 @media (width <= 992px) {
-  .logo-img {
+  .logo-img-nav {
     height: 60px;
     padding-top: 5px;
   }
-  .menu-nav ul > li > a {
+  .menu-nav ul > li > button {
     font-size: 15px;
     padding: 10px 25px;
   }
@@ -125,11 +196,11 @@ body {
     padding: 15px 5%;
     margin: 15px 0;
   }
-  .logo-img {
+  .logo-img-nav {
     height: 55px;
     padding-top: 5px;
   }
-  .menu-nav ul > li > a {
+  .menu-nav ul > li > button {
     font-size: 15px;
     padding: 10px 25px;
   }
@@ -139,11 +210,15 @@ body {
     padding: 5px 5%;
     margin: 10px 0;
   }
-  .logo-img {
+  .logo-img-nav {
     height: 50px;
     padding-top: 5px;
   }
   .menu-nav ul > li > a {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+  .menu-nav ul > li > button {
     font-size: 15px;
     padding: 10px 20px;
   }

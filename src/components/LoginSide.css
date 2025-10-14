@@ -2,8 +2,13 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
   z-index: 40;
+  animation: fadeIn 0.4s ease forwards;
+}
+.overlay.closing {
+  animation: fadeOut 0.3s ease forwards;
 }
 
 /* Drawer lateral */
@@ -11,7 +16,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 380px;
+  width: 350px;
   height: 100%;
   background: #fff;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
@@ -20,32 +25,54 @@
   z-index: 50;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  opacity: 0;
 }
 .login-drawer.open {
   transform: translateX(0);
+  opacity: 1;
+  animation: slideIn 0.4s ease forwards;
+}
+.login-drawer.closing {
+  animation: slideOut 0.3s ease forwards;
 }
 
 /* Encabezado */
 .drawer-header {
+  color: var(--colormaster);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 0px 15px;
+  margin-top: 10px;
   border-bottom: 1px solid #ddd;
 }
 .drawer-header h2 {
   margin: 0;
   font-size: 20px;
 }
-.close-btn {
+.drawer-header .close-btn {
+  cursor: pointer;
   background: none;
   border: none;
   font-size: 20px;
-  cursor: pointer;
-  color: #555;
+  font-weight: 700;
+  color: var(--colormaster);
+  transition: transform 0.2s ease;
 }
-.close-btn:hover {
-  color: #000;
+.drawer-header .close-btn:hover {
+  color: var(--colorsec);
+  transform: scale(1.1);
+}
+
+/* Imagen */
+.drawer-img {
+  display: flex;
+  justify-content: center;
+}
+.drawer-img img {
+  height: 70px;
+  width: auto;
 }
 
 /* Contenido */
@@ -56,35 +83,62 @@
 }
 .drawer-content label {
   display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: #333;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--colorneg);
+  margin-top: 10px;
 }
 .drawer-content input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  border: none;
+  border-bottom: 2px solid var(--colormaster);
+  outline: none;
+  color: var(--colormaster);
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 500;
+  padding: 0px 5px;
+  transition: border-color 0.3s, transform 0.2s;
 }
+.drawer-content input:focus {
+  border-color: var(--colorsec);
+  transform: scale(1.02);
+}
+.drawer-content input::placeholder {
+  color: var(--colormargen);
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* Botón principal */
 .primary-btn {
   width: 100%;
   padding: 12px;
-  background: #16a34a;
-  color: white;
-  border: none;
-  border-radius: 6px;
+  margin-top: 10px;
   cursor: pointer;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--colormaster);
+  color: var(--colorbla);
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s ease;
 }
 .primary-btn:hover {
-  background: #15803d;
+  background: var(--colorsec);
+  transform: scale(1.03);
 }
 
 /* Divider */
 .divider {
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .divider hr {
   flex: 1;
@@ -107,20 +161,28 @@
   border-radius: 6px;
   cursor: pointer;
   margin-bottom: 10px;
+  transition: transform 0.2s ease;
 }
 .facebook-btn:hover {
   background: #145db2;
+  transform: scale(1.02);
 }
 .google-btn {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 3px solid var(--colorsec);
   border-radius: 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
   justify-content: center;
+  transition: background 0.3s, transform 0.2s;
+}
+.google-btn:hover {
+  background: var(--colorsec);
+  color: white;
+  transform: scale(1.02);
 }
 .google-btn img {
   width: 18px;
@@ -129,8 +191,10 @@
 
 /* Nota */
 .note {
-  font-size: 12px;
-  color: #666;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--colorneg);
   margin-top: 15px;
 }
 
@@ -139,17 +203,61 @@
   border-top: 1px solid #ddd;
   padding: 15px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 8px;
 }
 .link-btn {
   background: none;
   border: none;
-  color: #16a34a;
   cursor: pointer;
-  font-size: 14px;
   text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--colormaster);
+  transition: color 0.3s ease;
 }
 .link-btn:hover {
+  color: var(--colorsec);
   text-decoration: underline;
+}
+
+/* ==============================
+   ANIMACIONES
+============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }

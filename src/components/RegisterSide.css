@@ -1,0 +1,37 @@
+/* ===========================================
+   RegisterSide.css
+   Solo define lo que difiere de LoginSide.css
+   =========================================== */
+
+/* Si deseas una animación idéntica al login */
+.login-drawer.open {
+  animation: slideIn 0.4s ease forwards;
+}
+.login-drawer.close {
+  animation: slideOut 0.3s ease forwards;
+}
+
+/* Ajustes leves en campos si los quieres distintos */
+.drawer-content input {
+  font-size: 22px;
+  padding: 4px 5px;
+}
+
+/* Nota inferior opcional */
+.note {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #444;
+  margin-top: 15px;
+  line-height: 1.4;
+}
+
+/* Si quieres mantener el footer más compacto */
+.drawer-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

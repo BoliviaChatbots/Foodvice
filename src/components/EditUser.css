@@ -1,0 +1,21 @@
+/* estilos específicos del avatar (no repiten las clases globales) */
+
+.avatar-large {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--colormaster);
+  background: #fff;
+  display: block;
+  margin: 6px auto;
+}
+
+/* si quieres texto debajo de la imagen */
+.drawer-img .change-avatar-text {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--colormaster);
+  margin-top: 6px;
+}

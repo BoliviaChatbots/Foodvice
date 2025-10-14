@@ -1,9 +1,14 @@
 import React from "react";
 import "./Banner.css";
-import CustomSelect from "./CustomSelect";
+
+import SearchBar from "./SearchBar";
 // import fondo from "/public/fondos/logofull.avif" style={{ backgroundImage: `url(/fondos/logofull.avif)` }}
 
 const Banner = () => {
+    const handleSearch = ({ city, query }) => {
+        // Aquí podrías llamar a tu API o redirigir al usuario
+        console.log("🚀 API CALL →", city, query);
+    };
     return (
         <>
             <div className="container">
@@ -17,22 +22,13 @@ const Banner = () => {
                             </p>
                         </div>
 
-                        <img src="/fondos/bannerimg.png" alt="Comida..." />
+                        <img src="/fondos/bannerimg.png" alt="Food vice" />
 
                     </div>
 
-                    <div className="search-box">
-                        <form className="banner-search-form">
-                            <CustomSelect className="selector-banner" />
-                            <div className="input-wrap">
-                                <box-icon className="icon-banner" name='restaurant' size='md'></box-icon>
-                                <input type="text" placeholder="Qué deseas comer hoy?" />
-                            </div>
 
-                            <button type="submit">BusCar</button>
-                        </form>
-                    </div>
-
+                    {/* 🔹 Componente reutilizable */}
+                    <SearchBar onSubmit={handleSearch} />
 
                 </div>
             </div>
