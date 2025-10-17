@@ -52,7 +52,7 @@ export default function LoginSide() {
                 onClick={handleDrawerClick}
             >
                 <div className="drawer-header">
-                    <h2>Ingreso</h2>
+                    <h2>Iniciar sesión</h2>
                     <button className="close-btn" onClick={handleClose}>
                         ✕
                     </button>
@@ -63,74 +63,73 @@ export default function LoginSide() {
                 </div>
 
                 <div className="drawer-content">
-                    <label>Correo electrónico *</label>
+                    {/* <label>Correo electrónico *</label> */}
                     <input
+                        placeholder="Correo electrónico o Usuario"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
                     />
 
-                    <label>Contraseña *</label>
+                    {/* <label>Contraseña *</label> */}
                     <input
+                        placeholder="Contraseña"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                     />
+                    {error && <p style={{ color: "red", padding: 10, fontSize: 14, }}>{error}</p>}
+                    <div className="drawer-btns">
+                        <button
+                            className="primary-btn"
+                            onClick={handleLogin}
+                            disabled={isLoading}
+                        >
+                            {isLoading ? "Revisando..." : "Ingresar"}
+                        </button>
 
-                    {error && <p style={{ color: "red" }}>{error}</p>}
+                        {/* Botón Google */}
+                        <button
+                            className="google-btn"
+                            onClick={() => {
+                                loginUser(
+                                    {
+                                        name: "Usuario Google",
+                                        email: "googleuser@demo.com",
+                                        avatar: "https://i.pravatar.cc/150?u=google",
+                                    },
+                                    "google-token-456"
+                                );
+                                closeLogin();
+                            }}
+                        >
+                            <img
+                                src="https://www.svgrepo.com/show/355037/google.svg"
+                                alt="Google"
+                            />
+                            Iniciar sesión con Google
+                        </button>
 
-                    <button
-                        className="primary-btn"
-                        onClick={handleLogin}
-                        disabled={isLoading}
-                    >
-                        {isLoading ? "Ingresando..." : "Continuar"}
-                    </button>
-                    <div className="divider">
-                        <hr />
-                        <span>o</span>
-                        <hr />
+                        {/* Botón Facebook */}
+                        {/* <button
+                            className="facebook-btn"
+                            onClick={() => {
+                                loginUser(
+                                    {
+                                        name: "Usuario Facebook",
+                                        email: "fbuser@demo.com",
+                                        avatar: "https://i.pravatar.cc/150?u=facebook",
+                                    },
+                                    "fb-token-123"
+                                );
+                                closeLogin();
+                            }}
+                        >
+                            Conectar con Facebook
+                        </button> */}
                     </div>
 
-                    {/* Botón Facebook */}
-                    {/* <button
-                        className="facebook-btn"
-                        onClick={() => {
-                            login(
-                                {
-                                    name: "Usuario Facebook",
-                                    email: "fbuser@demo.com",
-                                    avatar: "https://i.pravatar.cc/150?u=facebook",
-                                },
-                                "fb-token-123"
-                            );
-                            closeLogin();
-                        }}
-                    >
-                        Conectar con Facebook
-                    </button> */}
 
-                    {/* Botón Google */}
-                    <button
-                        className="google-btn"
-                        onClick={() => {
-                            loginUser(
-                                {
-                                    name: "Usuario Google",
-                                    email: "googleuser@demo.com",
-                                    avatar: "https://i.pravatar.cc/150?u=google",
-                                },
-                                "google-token-456"
-                            );
-                            closeLogin();
-                        }}
-                    >
-                        <img
-                            src="https://www.svgrepo.com/show/355037/google.svg"
-                            alt="Google"
-                        />
-                        Iniciar sesión con Google
-                    </button>
                 </div>
 
                 <div className="drawer-footer">

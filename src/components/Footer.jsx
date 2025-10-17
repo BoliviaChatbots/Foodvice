@@ -55,14 +55,16 @@ const Footer = () => {
 
                     <form className="footer__newsletter">
                         <input
+
+                            name="footer-email"
                             type="email"
                             placeholder="Tu email"
-                            className="footer__email"
+                            className="footer-email"
                         />
                         <input
                             type="submit"
                             value="Suscribirse"
-                            className="footer__submit"
+                            className="footer-submit"
                         />
                     </form>
                 </div>

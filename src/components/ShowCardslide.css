@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+/* Contenedor principal del slider */
+.container {
+  max-width: 1200px; /* ancho máximo */
+  margin: 0 auto; /* centra horizontalmente */
+  padding: 0 15px; /* espacio lateral */
+}
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap");
-
-/* Aplica a ambas flechas */
+/* Flechas de navegación Swiper */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000000; /* color de la flecha */
-  background: #fafafa; /* fondo circular */
-  border-radius: 50%; /* redondear */
+  color: #000;
+  background: #fafafa;
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   display: flex;
@@ -16,161 +18,45 @@
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  top: 40%; /* 👈 flechas un poco más arriba */
+  top: 40%;
 }
 .swiper-button-next {
-  right: 33px; /* más pegada al slider */
+  right: 33px;
 }
-
-/* Efecto hover */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  /* background: var(--colormaster); */
   transform: scale(1.1);
 }
-
-/* Ajustar tamaño de la flecha */
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 18px; /* tamaño de la flecha */
+  font-size: 18px;
   font-weight: bold;
 }
 
+/* Wrapper de Swiper */
 .wrapper {
-  height: 500px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: "Inter", sans-serif;
+  justify-content: flex-start;
+  padding: 10px 0;
 }
 
+/* Lista de slides */
 .card-list {
   width: 100%;
-  padding-right: 10px;
   overflow: hidden;
 }
-.wrapper .card {
-  min-width: 250px;
-  height: 430px;
-  margin: 0 15px 20px 0;
-  display: flex;
-  flex-direction: column;
-  color: var(--colorneg);
-  background: var(--colorpri);
-  /* border-radius: 7px; */
-  /* border: 1px solid var(--ccborde); */
-  /* box-shadow: 6px 6px 5px -3px var(--ccborde); */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.wrapper .card:hover {
-  box-shadow: 8px 8px 6px -2px var(--ccshadow);
-  /* box-shadow: 6px 12px 20px -5px var(--ccborde); */
-  transform: translate(-1px, -1px); /* sube y crece un poco */
-}
-.card-image {
-  width: 100%;
-  height: 50%;
-  position: relative;
+
+/* Cada slide con ancho fijo */
+.swiper-slide-auto {
+  width: 230px;
+  height: 380px;
 }
 
-.card .card-image img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-
-.card .card-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px 5px;
-}
-.card .card-content .card-tag-nivel {
-  display: flex;
-  align-items: center;
-}
-.card .card-content .card-tag-nivel .card-star {
-  margin-left: auto;
-  fill: var(--colorsec);
-  color: var(--colortxt);
-}
-.card .card-content .card-tag-nivel .card-level {
-  margin-left: 5px;
-  color: var(--colortxt);
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.card .card-content .card-title {
-  font-family: "Inter", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 0.9;
-  margin: 10px 0px;
-}
-
-.card .card-content .card-text {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.card .card-content .card-profile {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  margin-bottom: 5px;
-}
-.card .card-content .card-profile img {
-  width: 70px;
-  height: 50px;
-  border-radius: 5px;
-}
-
-.card .card-content .card-profile .card-profile-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding-left: 10px;
-  font-family: "Sunflower", sans-serif;
-}
-.card-profile-info .card-profile-name {
-  font-size: 1rem;
-  font-weight: 700;
-}
-.card-profile-info .card-profile-role {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.card-promo {
-  display: flex;
-  gap: 10px; /* opcional, espacio entre botones */
-}
-
-.card-promo .card-button {
-  flex: 1; /* hace que cada botón ocupe el mismo ancho */
-  text-align: center; /* centra el texto dentro */
-  justify-content: center;
-  color: var(--colorpri);
-  text-transform: uppercase;
-  padding: 3px 5px;
-  border-radius: 5px;
-
-  font-family: "Inter", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  background: black;
-  text-decoration: none;
-  border: none;
-}
-
-@media (width <= 512px) {
-  .wrapper .card {
-    min-width: 250px;
-    height: 410px;
+/* Móvil */
+@media (max-width: 480px) {
+  .swiper-slide-auto {
+    width: 200px;
+    height: 350px;
   }
 }

@@ -119,8 +119,8 @@
   color: var(--colorbla);
   font-family: "Epunda Sans", sans-serif;
   font-size: 20px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 400;
+
   padding: 0 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -128,7 +128,7 @@
 }
 
 .banner-search-form button:hover {
-  background: var(--colorsec);
+  background: var(--colorhover);
   transition: 0.5s;
 }
 

@@ -11,12 +11,6 @@
   animation: slideOut 0.3s ease forwards;
 }
 
-/* Ajustes leves en campos si los quieres distintos */
-.drawer-content input {
-  font-size: 22px;
-  padding: 4px 5px;
-}
-
 /* Nota inferior opcional */
 .note {
   font-family: "Epunda Sans", sans-serif;

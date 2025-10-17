@@ -41,15 +41,15 @@ export default function RegisterSide() {
 
                 <div className="drawer-content">
                     <label>Correo *</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" required />
                     <label>Celular (será tu password) *</label>
                     <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" />
-                    <label>Nombre</label>
+                    <label>Nombre *</label>
                     <input value={name} onChange={(e) => setName(e.target.value)} type="text" />
                     <label>Apellidos (opcional)</label>
                     <input value={lastName} onChange={(e) => setLastName(e.target.value)} type="text" />
 
-                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    {error && <p style={{ color: "red", padding: 10, fontSize: 14, }}>{error}</p>}
 
                     <button className="primary-btn" onClick={handleRegister} disabled={isLoading}>
                         {isLoading ? "Creando..." : "Registrar"}

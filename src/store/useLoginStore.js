@@ -37,12 +37,13 @@ export const useLoginStore = create(
 
           // lógica de ejemplo (reemplazar por llamada real)
           if (email === "demo@gmail.com" && password === "12345") {
-            const user = {
-              name: "Gualberto Alex",
-              email,
-              avatar: "https://i.pravatar.cc/150?u=" + email,
-            };
             const token = Math.random().toString(36).substring(2);
+            const user = {
+              name: "Juan Carlos",
+              email,
+              avatar: "https://api.dicebear.com/9.x/bottts/svg?seed=carlos",
+            };
+
             set({ user, token, isOpenLogin: false });
             return { success: true, user };
           } else {
@@ -62,16 +63,21 @@ export const useLoginStore = create(
           // simula llamada al backend
           await new Promise((r) => setTimeout(r, 700));
 
-          if (!email || !phone) throw new Error("Email y celular obligatorios");
-
-          const user = {
-            name: name
-              ? `${name} ${lastName || ""}`.trim()
-              : email.split("@")[0],
-            email,
-            avatar: "https://i.pravatar.cc/150?u=" + email,
-          };
+          if (!email || !phone || !name)
+            throw new Error("(*) Datos obligatorios");
+          const randomnumber = String(
+            Math.floor(10000000 + Math.random() * 90000000)
+          );
           const token = Math.random().toString(36).substring(2);
+          const user = {
+            name: name ? `${name}`.trim() : email.split("@")[0],
+            lastname: lastName ? `${lastName || ""}`.trim() : "",
+            email,
+            avatar:
+              "https://secure.gravatar.com/avatar/" +
+              randomnumber +
+              "?s=150&d=identicon",
+          };
 
           // guardar y cerrar register
           set({ user, token, isOpenRegister: false });

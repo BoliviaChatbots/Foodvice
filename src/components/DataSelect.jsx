@@ -87,13 +87,14 @@ const DataSelect = ({
                     <box-icon
                         type="regular"
                         className="banner-box-icon"
-                        size="md"
+                        size="sm"
                         name={icon}
 
                     ></box-icon>
                 )}
 
                 <input
+                    name={label || "dataselect"}
                     type="text"
                     value={search}
                     placeholder={placeholder}
@@ -121,7 +122,7 @@ const DataSelect = ({
                             {icon && (
                                 <box-icon
                                     className="banner-box-icon"
-                                    size="md"
+                                    size="sm"
                                     name={opt.icon}
                                     type="regular"
                                 ></box-icon>

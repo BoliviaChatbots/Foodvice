@@ -35,8 +35,8 @@
 
 .footer-text,
 .footer-link,
-.footer__email,
-.footer__submit {
+.footer-email,
+.footer-submit {
   font-size: 0.95rem;
   font-weight: 400;
   color: #fff;

@@ -52,8 +52,10 @@ export default function LoginAvatar() {
                 </div>
 
                 <div className="drawer-content">
-                    <button className="primary-btn" onClick={openEditUser}>Editar perfil</button>
-                    <button className="primary-btn" onClick={handleLogout}>Cerrar sesion</button>
+                    <div className="drawer-btns">
+                        <button className="primary-btn" onClick={openEditUser}>Editar perfil</button>
+                        <button className="primary-btn" onClick={handleLogout}>Cerrar sesion</button>
+                    </div>
                 </div>
             </div>
         </>

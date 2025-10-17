@@ -8,8 +8,7 @@ import "./SliderDemo.css";
 import restos from "../data/resto.json";
 // import { fetchGetRestaurants } from "../services/Restaurantes/apiGetRestaurants.js";
 
-import ParticleBackground from "./ParticleBackground";
-import FoodParticles from "./FoodParticles";
+
 import { useState, useEffect } from "react";
 
 export default function SliderResto() {

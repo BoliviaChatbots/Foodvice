@@ -14,15 +14,17 @@
 
   background: #fff;
   border-radius: 5px;
-  box-sizing: border-box;
+  padding: 5px;
+
   cursor: text;
+  border: 1px solid var(--ccborde);
 }
 
 .banner-box-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
+  margin-right: 0px;
   flex: 0 0 auto;
 }
 
@@ -30,19 +32,24 @@
   border: none;
   outline: none;
   /* flex: 1; */
-  margin: 0 10px;
-  border-bottom: 2px solid var(--colormaster);
+  margin: 0px 10px;
+  /* border-bottom: 2px solid var(--colormaster); */
   font-family: "Epunda Sans", sans-serif;
-  font-size: 23px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   background: transparent; /* fondo q tiene banner-input-box */
-  color: var(--colortxt);
+  color: var(--colormaster);
   height: 100%;
+  width: 100%;
   line-height: 44px;
   box-sizing: border-box;
 }
+.banner-input-box input:focus {
+  border-bottom: 2px solid var(--colormaster);
+}
 .banner-input-box input::placeholder {
-  color: var(--colortxt);
+  color: var(--ccborde);
+  font-size: 18px;
   opacity: 1; /* asegúrate de que no sea translúcido */
 }
 
@@ -52,7 +59,7 @@
   left: 0;
   right: 0;
   font-family: "Epunda Sans", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   background: #fff; /* fondo blanco */
   color: var(--colortxt); /* texto con tu variable */
@@ -67,8 +74,8 @@
 /* 🔹 Encabezado de la lista */
 .dropdown-header {
   font-family: "Epunda Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   text-align: left;
   /* background: var(--colormaster); */
   color: var(--colorneg);
@@ -83,13 +90,19 @@
   display: flex;
   align-items: center;
   border-top: 1px solid #adabab;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 .option-text {
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-left: 20px;
-  font-size: 15px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+.option-text h3 {
+  font-size: 16px;
 }
 
 .option:hover {
@@ -103,7 +116,7 @@
   padding: 10px;
   color: var(--colortxt); /* texto con tu variable */
   font-family: "Epunda Sans", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   text-align: center;
 }

@@ -9,8 +9,7 @@ import './Sliderestaurantes.css';
 // import required modules
 import { Autoplay, Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
 import Cardslide from './Cardslide';
-import ParticleBackground from './ParticleBackground';
-import FoodParticles from './FoodParticles';
+
 import TitleSlide from './TitleSlide';
 import restaurants from "../data/resto.json";
 
