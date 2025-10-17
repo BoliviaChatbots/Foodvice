@@ -1,11 +1,13 @@
-/* Contenedor principal del slider */
+/* 📦 Contenedor principal del slider */
 .container {
-  max-width: 1200px; /* ancho máximo */
+  max-width: 1200px; /* ancho máximo del contenedor */
   margin: 0 auto; /* centra horizontalmente */
   padding: 0 15px; /* espacio lateral */
+  overflow: hidden; /*🟢 evita scroll horizontal */
+  z-index: 10;
 }
 
-/* Flechas de navegación Swiper */
+/* 🎯 Flechas de navegación Swiper */
 .swiper-button-next,
 .swiper-button-prev {
   color: #000;
@@ -20,43 +22,80 @@
   transition: all 0.3s ease;
   top: 40%;
 }
+
 .swiper-button-next {
   right: 33px;
 }
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   transform: scale(1.1);
 }
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 18px;
   font-weight: bold;
 }
 
-/* Wrapper de Swiper */
+/* 🧱 Wrapper del Swiper */
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 10px 0;
+  width: 100%;
 }
 
-/* Lista de slides */
+/* 🎞️ Lista general de slides */
 .card-list {
   width: 100%;
-  overflow: hidden;
+  padding: 10px 5px;
+  overflow: hidden; /* 🟢 aseguramos que no haya desbordes */
 }
 
-/* Cada slide con ancho fijo */
+/* 🟢 Cada slide con ancho adaptable pero limitado */
 .swiper-slide-auto {
-  width: 230px;
-  height: 380px;
+  flex-shrink: 0;
+  width: auto;
+  min-width: 200px; /* 🟢 base mínima visible en pantallas pequeñas */
+  max-width: 280px; /* 🟢 tamaño máximo */
+  height: 380px; /* 🟢 altura fija */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 
-/* Móvil */
-@media (max-width: 480px) {
+/* 🟢 Ajuste para pantallas grandes (≥1200px) */
+@media (min-width: 1200px) {
   .swiper-slide-auto {
-    width: 200px;
+    min-width: 250px;
+    height: 400px; /* tamaño ideal de card */
+  }
+}
+
+/* 📱 Ajustes para pantallas medianas (entre 768px y 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .swiper-slide-auto {
+    min-width: 250px;
+    height: 380px;
+  }
+}
+
+/* 📱 Ajustes para móviles (512px o menos) */
+@media (max-width: 512px) {
+  .swiper-slide-auto {
+    min-width: 200px; /* 🟢 muestra una card completa + parte de otra */
+
     height: 350px;
   }
 }
+
+/* 📱 Móviles muy pequeños (400px o menos) 
+@media (max-width: 400px) {
+  .swiper-slide-auto {
+    min-width: 190px;
+    max-width: 200px;
+    height: 340px;
+  }
+}*/

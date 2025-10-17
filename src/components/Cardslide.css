@@ -76,7 +76,7 @@
 .card-footer {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 /* Perfil y plato */
@@ -126,7 +126,10 @@
 }
 
 /* Móvil */
-@media (max-width: 480px) {
+@media (max-width: 512px) {
+  .card-footer {
+    gap: 5px;
+  }
   .card-title {
     font-size: 15px;
   }

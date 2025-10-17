@@ -40,11 +40,13 @@ const ShowCardslide = ({ title = "Recomendados", data = [] }) => {
                 <div className="wrapper">
                     <Swiper
                         className="card-list"
-                        effect={"coverflow"}
+                        effect="coverflow"
                         grabCursor={true}
                         centeredSlides={false}
                         spaceBetween={20}
-                        slidesPerView="auto" // ✅ se ajusta automáticamente al ancho
+                        navigation={true}
+                        loop={false}
+                        modules={[EffectCoverflow, Navigation]}
                         coverflowEffect={{
                             rotate: 0,
                             stretch: 0,
@@ -52,9 +54,28 @@ const ShowCardslide = ({ title = "Recomendados", data = [] }) => {
                             modifier: 1,
                             slideShadows: false,
                         }}
-                        navigation={true}
-                        loop={false}
-                        modules={[EffectCoverflow, Navigation]}
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1.3, // ✅ muestra una completa y parte de otra
+                                spaceBetween: 10,
+                            },
+                            400: {
+                                slidesPerView: 1.6,
+                                spaceBetween: 12,
+                            },
+                            512: {
+                                slidesPerView: 2,
+                                spaceBetween: 15,
+                            },
+                            768: {
+                                slidesPerView: 3,
+                                spaceBetween: 10,
+                            },
+                            1200: {
+                                slidesPerView: 4, // ✅ 4 cards en pantallas grandes
+                                spaceBetween: 20,
+                            },
+                        }}
                     >
                         {formattedData.map((item) => (
                             <SwiperSlide key={item.id} className="swiper-slide-auto">

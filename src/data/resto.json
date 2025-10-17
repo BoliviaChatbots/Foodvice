@@ -29,11 +29,14 @@
     "id": 3,
     "titulo": "Sushis King Hu",
     "descripcion": "Exquisito sushi preparado por chefs japoneses.",
-    "imagen": "/restaurantes/food-3.jpg",
+    "imagen": "/restaurantes/3/portada.jpg",
     "estilo": "Japonesa",
     "direccion": "Barrio Equipetrol Av San Martin entre 3er y 4to Anillo",
     "promo": "desc 30%",
-    "nivel": 8
+    "nivel": 8,
+    "comidaImagen": "/restaurantes/3/food-1.jpg",
+    "comidaNombre": "Sushi Familiar",
+    "comidaPrecio": 150
   },
   {
     "id": 4,
