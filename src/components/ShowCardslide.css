@@ -3,8 +3,8 @@
   max-width: 1200px; /* ancho máximo del contenedor */
   margin: 0 auto; /* centra horizontalmente */
   padding: 0 15px; /* espacio lateral */
-  overflow: hidden; /*🟢 evita scroll horizontal */
-  z-index: 10;
+  /*overflow: hidden; /*🟢 evita scroll horizontal */
+  z-index: 1;
 }
 
 /* 🎯 Flechas de navegación Swiper */
