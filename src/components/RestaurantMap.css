@@ -1,0 +1,23 @@
+.restaurant-map {
+  flex: 1;
+  height: 100%;
+  min-height: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 15px;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .restaurant-map {
+    margin-top: 20px;
+    height: 400px;
+  }
+}

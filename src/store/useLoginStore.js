@@ -65,18 +65,16 @@ export const useLoginStore = create(
 
           if (!email || !phone || !name)
             throw new Error("(*) Datos obligatorios");
-          const randomnumber = String(
-            Math.floor(10000000 + Math.random() * 90000000)
-          );
+          // const randomnumber = String(
+          //   Math.floor(10000000 + Math.random() * 90000000)
+          // );
+          const data = name ? `${name}`.trim() : email.split("@")[0];
           const token = Math.random().toString(36).substring(2);
           const user = {
             name: name ? `${name}`.trim() : email.split("@")[0],
             lastname: lastName ? `${lastName || ""}`.trim() : "",
             email,
-            avatar:
-              "https://secure.gravatar.com/avatar/" +
-              randomnumber +
-              "?s=150&d=identicon",
+            avatar: `https://api.dicebear.com/9.x/bottts/svg?seed=${data}`,
           };
 
           // guardar y cerrar register

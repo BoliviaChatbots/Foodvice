@@ -34,7 +34,7 @@ const Cardslide = ({ item }) => {
                         {item.promo && (
                             <button className="card-button">{item.promo}</button>
                         )}
-                        <Link to={`/restaurants/${item.url}`} className="card-button">
+                        <Link to={`/restaurant/${item.url}`} className="card-button">
                             Reservar
                         </Link>
                     </div>

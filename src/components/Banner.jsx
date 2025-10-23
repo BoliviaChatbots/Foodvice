@@ -11,7 +11,7 @@ const Banner = () => {
     };
     return (
         <>
-            <div className="container">
+            <div className="wraper-banner">
                 <div className="banner" >
                     <div className="banner-overlay">
 

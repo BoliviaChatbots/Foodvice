@@ -1,10 +1,9 @@
 /* 🔹 Ajusta el ancho mínimo del select */
 .banner-select {
   position: relative;
-  flex: 1; /* 🔥 se adapta igual que el input */
+  /*flex: 1; /* 🔥 se adapta igual que el input */
   /* min-width: 300px; */
   box-sizing: border-box;
-  z-index: 30;
 }
 
 .banner-input-box {
@@ -18,7 +17,7 @@
   padding: 5px;
 
   cursor: text;
-  border: 1px solid var(--ccborde);
+  /* border: 1px solid var(--ccborde); */
 }
 
 .banner-box-icon {
@@ -67,10 +66,11 @@
   border: 1px solid #adabab;
   border-radius: 8px;
   margin-top: 6px;
+  min-width: 230px;
   max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  z-index: 20;
+  z-index: 30;
 }
 /* 🔹 Encabezado de la lista */
 .dropdown-header {
@@ -81,16 +81,16 @@
   /* background: var(--colormaster); */
   color: var(--colorneg);
   padding: 12px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
 }
 
 .option {
-  padding: 5px 0 10px 20px;
+  padding: 5px 0 10px 10px;
   cursor: pointer;
   transition: background 0.3s;
   display: flex;
   align-items: center;
-  border-top: 1px solid #adabab;
+  /* border-top: 1px solid #adabab; */
   font-family: "Epunda Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -103,7 +103,7 @@
   font-size: 12px;
 }
 .option-text h3 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .option:hover {
@@ -122,12 +122,31 @@
   text-align: center;
 }
 /* 🔹 Responsivo: a partir de 992px hacia abajo */
-@media (max-width: 992px) {
-  .banner-select {
+@media (min-width: 992px) {
+  .banner-input-box,
+  .banner-input-box input {
     width: 100%;
   }
-  .banner-input-box {
-    width: 100%;
+}
+@media (max-width: 512px) {
+  .banner-input-box input {
+    font-size: 15px;
+  }
+  .banner-input-box input::placeholder {
+    font-size: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .banner-input-box input::placeholder {
+    font-size: 14px;
+  }
+  .banner-input-box input {
+    margin: 0;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  .option {
+    padding: 5px 0 5px 5px;
   }
 }
 /* 🔹 Animación suave de desvanecimiento */

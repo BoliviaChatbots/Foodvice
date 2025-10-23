@@ -6,6 +6,7 @@
     "imagen": "/restaurantes/1/portada.jpg",
     "estilo": "Italiana",
     "direccion": "Av Moscu casi 7mo Anillo, calle Guadalupe 55",
+    "ciudad": "Santa Cruz",
     "promo": "desc 30%",
     "nivel": 8.2,
     "comidaImagen": "/restaurantes/1/food-1.jpg",
@@ -14,11 +15,12 @@
   },
   {
     "id": 2,
-    "titulo": "Parrilla Argentina",
+    "titulo": "Parrillada Argentina",
     "descripcion": "Carnes a la brasa con el auténtico sabor argentino.",
     "imagen": "/restaurantes/2/portada.jpg",
     "estilo": "Argentina",
     "direccion": "Av Alemana entre 3er y 4to Anillo",
+    "ciudad": "Santa Cruz",
     "promo": "desc 25%",
     "nivel": 9.5,
     "comidaImagen": "/restaurantes/2/food-1.jpg",
@@ -32,6 +34,7 @@
     "imagen": "/restaurantes/3/portada.jpg",
     "estilo": "Japonesa",
     "direccion": "Barrio Equipetrol Av San Martin entre 3er y 4to Anillo",
+    "ciudad": "Santa Cruz",
     "promo": "desc 30%",
     "nivel": 8,
     "comidaImagen": "/restaurantes/3/food-1.jpg",
@@ -45,6 +48,7 @@
     "imagen": "/restaurantes/food-4.jpg",
     "estilo": "Cafetería",
     "direccion": "Av santos Dumont 2do Anillo",
+    "ciudad": "Santa Cruz",
     "promo": "desc 50%",
     "nivel": 6
   },
@@ -55,16 +59,18 @@
     "imagen": "/restaurantes/food-5.jpg",
     "estilo": "Cafetería",
     "direccion": "Av Monsenor Salvatierra 1er Anillo",
+    "ciudad": "Santa Cruz",
     "promo": "desc 40%",
     "nivel": 8
   },
   {
     "id": 6,
     "titulo": "La Gauchita",
-    "descripcion": "Las mejores parrilladas de Santa Cruz.",
+    "descripcion": "Las mejores parrilladas de carnes en Santa Cruz.",
     "imagen": "/restaurantes/food-1.jpg",
     "estilo": "Churrasqueria",
     "direccion": "Av Paraguá entre 3er y 4to Anillo",
+    "ciudad": "Santa Cruz",
     "promo": "Desc 20%",
     "nivel": 8
   },
@@ -72,11 +78,16 @@
     "id": 7,
     "titulo": "Salteñas Piraí",
     "descripcion": "Las mejores salteñas vallegrandinas.",
-    "imagen": "/restaurantes/food-2.jpg",
+    "imagen": "/restaurantes/7/portada.jpg",
     "estilo": "Nacional",
     "direccion": "Av Piraí casi 3er Anillo",
+    "ciudad": "Cochabamba",
     "promo": "Prom 2x1",
-    "nivel": 10
+    "nivel": 10,
+
+    "comidaImagen": "/restaurantes/7/food-1.jpg",
+    "comidaNombre": "La Picante de Pollo",
+    "comidaPrecio": 10
   },
   {
     "id": 8,
@@ -85,6 +96,7 @@
     "imagen": "/restaurantes/food-3.jpg",
     "estilo": "Peruana",
     "direccion": "Av Monsenor Salvatierra 2do Anillo",
+    "ciudad": "Cochabamba",
     "promo": "desc 20%",
     "nivel": 8
   },
@@ -95,6 +107,7 @@
     "imagen": "/restaurantes/food-4.jpg",
     "estilo": "Pollos",
     "direccion": "Av Cañoto en el 1er Anillo",
+    "ciudad": "Cochabamba",
     "promo": "Prom 2x1",
     "nivel": 6
   }

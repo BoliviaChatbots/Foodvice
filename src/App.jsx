@@ -17,6 +17,7 @@ import LoginSide from "./components/LoginSide";
 import RegisterSide from "./components/RegisterSide";
 import EditUser from "./components/EditUser";
 import LoginAvatar from "./components/LoginAvatar";
+import FilterBar from "./components/FilterBar";
 
 function App() {
 
@@ -33,9 +34,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/contact" element={<h1>Contactenos</h1>} />
+        <Route path="/restaurants" element={<Restaurantes />} />
         <Route path="/showroom" element={<Showing />} />
-        <Route path="/restaurants/:url" element={<Restaurantes />} />
+        <Route path="/restaurant/:url" element={<LoginRegister />} />
         <Route path="/login" element={<LoginRegister />} />
       </Routes>
       <Footer />

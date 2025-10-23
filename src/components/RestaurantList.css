@@ -1,0 +1,24 @@
+.restaurant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0px;
+  background-color: #fafafa;
+  border-radius: 16px;
+}
+
+/* Si está vacío */
+.restaurant-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #777;
+  font-size: 1.1rem;
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+  .restaurant-list {
+    padding: 10px;
+    gap: 16px;
+  }
+}

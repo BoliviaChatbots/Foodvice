@@ -18,6 +18,7 @@ const DataSelect = ({
     const [search, setSearch] = useState(value || "");
     const [filtered, setFiltered] = useState([]);
     const [showEmpty, setShowEmpty] = useState(false);
+    const [error, setError] = useState(""); // 🆕 Manejo de error visual
     const selectRef = useRef(null);
 
     // 🔹 Filtrar o mostrar todas las opciones
@@ -34,6 +35,8 @@ const DataSelect = ({
             );
         }
         setFiltered(filteredOptions);
+
+        // Mostrar mensaje de “no hay resultados”
         if (search && filteredOptions.length === 0 && allowFreeText) {
             setShowEmpty(true);
         } else {
@@ -47,29 +50,42 @@ const DataSelect = ({
             if (selectRef.current && !selectRef.current.contains(e.target)) {
                 setOpen(false);
                 setShowEmpty(false);
+                setError(""); // Limpia errores al cerrar
 
-                // 🆕 Si tiene valor por defecto, se mantiene al perder foco
+                // 🆕 Mantener valor visible al perder foco
                 if (!search && value) setSearch(value);
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [value, search]);
+
+    // 🔹 Actualiza visualmente si el valor externo cambia (por ejemplo, limpieza desde Zustand)
     useEffect(() => {
-        // Si el valor externo cambia (por ejemplo, se limpia desde el store),
-        // actualiza el valor local del input.
         if (value === "") {
             setSearch("");
         }
     }, [value]);
 
+    // 🧩 Maneja selección de opción
     const handleSelect = (opt) => {
-        const selectedLabel = opt.label || opt;
-        onChange(selectedLabel);
-        if (showSelected) setSearch(selectedLabel);
+        const selectedValue = opt.value ?? null;
+
+        // ⚠️ Si la opción no tiene "value", mostrar error
+        if (selectedValue === null || selectedValue === undefined) {
+            setError("⚠️ Esta opción no tiene un valor asignado");
+            setShowEmpty(false);
+            setOpen(false);
+            return;
+        }
+
+        // ✅ Si tiene valor, proceder normalmente
+        onChange(selectedValue);
+        if (showSelected) setSearch(opt.label || opt);
         else setSearch("");
         setOpen(false);
         setShowEmpty(false);
+        setError("");
     };
 
     return (
@@ -89,7 +105,7 @@ const DataSelect = ({
                         className="banner-box-icon"
                         size="sm"
                         name={icon}
-
+                        color="var(--ccborde)"
                     ></box-icon>
                 )}
 
@@ -125,21 +141,25 @@ const DataSelect = ({
                                     size="sm"
                                     name={opt.icon}
                                     type="regular"
+                                    color="var(--ccborde)"
                                 ></box-icon>
                             )}
                             <div className="option-text">
-
                                 <h3>{opt.label || opt}</h3>
-                                {opt.detail}
+                                {opt.detail && <small>{opt.detail}</small>}
                             </div>
                         </div>
                     ))}
                 </div>
             )}
 
-            {/* 🔹 Mensaje "no hay resultados" solo si allowFreeText */}
+            {/* 🔹 Mensajes dinámicos */}
             {open && showEmpty && allowFreeText && (
                 <div className="dropdown empty fade-out">No hay resultados</div>
+            )}
+
+            {error && (
+                <div className="dropdown empty fade-out error">{error}</div>
             )}
         </div>
     );

@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap");
-.container {
+.wraper-banner {
   width: 100%;
-  padding-right: 5%;
-  padding-left: 5%;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 1200px; /* ancho máximo del contenedor */
+  margin: 0 auto; /* centra horizontalmente */
+  padding: 0 15px; /* espacio lateral */
 }
 
 .banner {
@@ -56,37 +55,43 @@
 
 .search-box {
   background-color: var(--colorpri);
-  padding: 10px;
   border-radius: 10px;
   width: 100%;
-  max-width: 1000px; /* límite ancho en pantallas grandes */
-  margin: 1rem auto;
+  max-width: 900px;
   box-sizing: border-box;
-  overflow: visible;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .banner-search-form {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* distribuye en fila */
+  justify-content: space-between;
   gap: 10px;
-  flex-wrap: nowrap; /* evita que bajen de línea */
+  width: 100%;
+  flex-wrap: nowrap;
 }
 
-.banner-search-form .selector-banner {
+/* 🔹 Asegura que los DataSelect respeten su ancho */
+.banner-search-form > .banner-select {
+  flex-shrink: 0;
+}
+
+/* .banner-search-form .selector-banner {
   flex: 1 1 200px;
   box-sizing: border-box;
-}
+} */
 
-.input-wrap {
+/* .input-wrap {
   padding-left: 30px;
   display: flex;
   align-items: center;
   justify-content: left;
-  flex: 2 1; /* ocupa más espacio que el select */
+  flex: 2 1;
   gap: 10px;
-}
-.banner-search-form .input-wrap input {
+} */
+/* .banner-search-form .input-wrap input {
   width: 100%;
   height: 44px;
   line-height: 44px;
@@ -105,14 +110,14 @@
   font-family: "Epunda Sans", sans-serif;
   font-size: 23px;
   font-weight: 300;
-  color: var(--colormaster); /* el color que quieras */
-  opacity: 1; /* opcional: asegura que el color se vea bien en algunos navegadores */
-}
+  color: var(--colormaster);
+  opacity: 1;
+} */
 
 .banner-search-form button {
-  flex: 0 0 150px; /* fija ancho preferido */
+  flex: 0 0 150px;
   min-width: 150px;
-  height: 44px; /* misma altura que input */
+  height: 44px;
   line-height: 44px;
   border: none;
   background: var(--colormaster);
@@ -120,7 +125,6 @@
   font-family: "Epunda Sans", sans-serif;
   font-size: 20px;
   font-weight: 400;
-
   padding: 0 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -134,51 +138,87 @@
 
 /* 🔹 Responsivo: a partir de 992px hacia abajo */
 @media (max-width: 992px) {
-  .input-wrap {
+  /* .input-wrap {
     padding-left: 0;
-  }
+  } */
 
   .banner-overlay img {
-    width: 60%; /* que no quede muy pequeña ni muy grande */
+    width: 60%;
   }
   .banner-search-form {
-    flex-direction: column; /* 🔥 apila elementos */
-    align-items: stretch;
-    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
   }
 
-  .banner-search-form .selector-banner,
   .banner-search-form button {
     width: 100%;
     flex: unset;
     min-width: 0;
-    height: 48px; /* un pelín mayor en móvil */
+    height: 48px;
     line-height: 48px;
   }
-  /* reduce el font-size del input en pantallas pequeñas */
+
   .banner-search-form input {
     font-size: 16px;
     width: 100%;
     flex: unset;
     min-width: 0;
-    height: 48px; /* un pelín mayor en móvil */
+    height: 48px;
     line-height: 48px;
   }
 }
+
 @media (max-width: 768px) {
+  .banner-search-form > .banner-select {
+    width: 100% !important; /* cada DataSelect y botón ocupa todo el ancho */
+  }
   .banner-overlay img {
-    width: 50%; /* que no quede muy pequeña ni muy grande */
+    width: 50%;
   }
 }
 
+/* 🔹 NUEVO: Pantallas pequeñas (<512px) */
 @media (max-width: 512px) {
-  .banner {
-    padding: 5px;
+  .wraper-banner {
+    padding: 0; /* 🔸 Quita márgenes laterales */
   }
+
+  .banner {
+    background: var(--ccdark);
+    padding: 10px; /* 🔸 Reduce padding */
+    border-radius: 0; /* 🔸 Quita bordes redondeados */
+    width: 100%; /* 🔸 Ocupa todo el ancho del viewport */
+  }
+
   .banner-overlay {
     justify-content: space-around;
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 30px;
   }
+
   .banner-overlay img {
-    width: 40%; /* que no quede muy pequeña ni muy grande */
+    width: 40%; /* 🔸 Más grande para pantallas pequeñas */
+    max-width: none;
+  }
+  .banner-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .banner-slogan {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .search-box {
+    border-radius: 0; /* 🔸 Mantiene coherencia visual */
+    width: 100%; /* 🔸 Abarca todo el ancho */
   }
 }

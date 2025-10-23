@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Epunda+Sans:ital,wght@0,300..900;1,300..900&display=swap");
+.filter-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 40;
+}
+
+.filter-modal {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  margin-top: 50px;
+  animation: slideDown 0.3s ease-in-out forwards;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 NUEVA animación de salida */
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* 🔹 Clases dinámicas */
+.slide-in {
+  animation: slideDown 0.3s ease-in-out forwards;
+}
+
+.slide-out {
+  animation: slideUp 0.3s ease-in-out forwards;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-section label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.filter-section input[type="range"],
+.filter-section input[type="number"] {
+  width: 100%;
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.accept-btn,
+.cancel-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accept-btn {
+  background: var(--colormaster);
+  color: var(--colorbla);
+}
+.cancel-btn {
+  background: #ccc;
+  color: #000;
+}
+@media (max-width: 512px) {
+  .filterbar-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+  /* .filterbar-btn {
+    width: 100%;
+  } */
+}
