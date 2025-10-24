@@ -6,7 +6,7 @@ export default function BannerRestaurants({ city, query, count }) {
     const { city: globalCity, query: globalQuery } = useSearchStore();
 
     const currentCity = city || globalCity || "tu ciudad";
-    const currentQuery = query || globalQuery || "restaurantes";
+    const currentQuery = query || globalQuery || "resultados";
     const resultsText =
         count === 0
             ? "Sin resultados"
@@ -19,7 +19,7 @@ export default function BannerRestaurants({ city, query, count }) {
             <section className="banner-restaurants-text">
                 <h1 className="banner-text-title">
                     {count > 0
-                        ? `Los ${count} mejores ${currentQuery} de ${currentCity}`
+                        ? `Los mejores resultados de ${currentCity}`
                         : `Restaurantes en ${currentCity}`}
                 </h1>
                 <p className="banner-text-subtitle">{resultsText}</p>
