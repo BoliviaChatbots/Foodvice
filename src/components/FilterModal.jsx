@@ -2,18 +2,11 @@ import { useEffect, useState } from "react";
 import { useSearchStore } from "../store/useSearchStore";
 import DataSelect from "./DataSelect";
 import "./FilterModal.css";
+import PriceRangeSelect from "./PriceRangeSelect";
+import LocationSelect from "./LocationSelect";
 
 export default function FilterModal({ setShowFilters }) {
-    const {
-        priceRange,
-        setPriceRange,
-        level,
-        setLevel,
-        cuisine,
-        setCuisine,
-        distance,
-        setDistance,
-    } = useSearchStore();
+    const { city, setCity, cuisine, setCuisine } = useSearchStore();
 
     const [closing, setClosing] = useState(false); // 👈 nuevo estado para animación de salida
 
@@ -22,10 +15,10 @@ export default function FilterModal({ setShowFilters }) {
         setTimeout(() => setShowFilters(false), 300); // espera antes de desmontar
     };
 
-    const handleAccept = () => {
-        console.log("Filtros aplicados:", { priceRange, level, cuisine, distance });
-        handleClose(); // también cierra con animación
-    };
+    // const handleAccept = () => {
+    //     console.log("Filtros aplicados:", { priceRange, level, cuisine, distance });
+    //     handleClose(); // también cierra con animación
+    // };
 
     const handleEsc = (e) => {
         if (e.key === "Escape") handleClose();
@@ -47,65 +40,68 @@ export default function FilterModal({ setShowFilters }) {
                     <button className="close-btn" onClick={handleClose}>X</button>
                 </div>
 
-                {/* 🔹 Rango de precios */}
+                {/* 🔹 Ciudad */}
                 <div className="filter-section">
-                    <label>Rango de precios (0-100 Bs.)</label>
-                    <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={priceRange}
-                        onChange={(e) => setPriceRange(e.target.value)}
-                    />
-                    <span>{priceRange} Bs.</span>
-                </div>
-
-                {/* 🔹 Nivel */}
-                <div className="filter-section">
-                    <label>Nivel mínimo</label>
-                    <input
-                        type="number"
-                        min="0"
-                        max="10"
-                        value={level}
-                        onChange={(e) => setLevel(e.target.value)}
-                    />
-                </div>
-
-                {/* 🔹 Tipo de cocina */}
-                <div className="filter-section">
+                    <label>Ciudad:</label>
                     <DataSelect
-                        label="Tipo de cocina"
+                        className="ciudad"
+                        name="ciudad"
+                        width="150px"
+                        icon="map-pin"
+                        placeholder="Selecciona una ciudad..."
+                        header="Ciudades:"
                         options={[
-                            { label: "Italiana" },
-                            { label: "Japonesa" },
-                            { label: "Argentina" },
-                            { label: "Boliviana" },
+                            { detail: "", icon: "map-pin", label: "Santa Cruz", value: "Santa Cruz" },
+                            { icon: "map-pin", label: "Cochabamba", value: "Cochabamba" },
+                            { detail: "Ciudad Capital - Altura", icon: "map-pin", label: "La Paz", value: "La Paz" },
+                        ]}
+                        value={city}
+                        onChange={setCity}
+                        showSelected={true}
+                        allowFreeText={false}
+                    />
+                </div>
+                {/* Comida */}
+                <div className="filter-section">
+                    <label>Cocina:</label>
+                    <DataSelect
+                        className="cuisine"
+                        name="cuisine"
+                        width="150px"
+                        icon="dish"
+                        placeholder="Tipo Comida"
+                        header="Comida:"
+                        options={[
+                            { detail: "", icon: "world", label: "Todos", value: "" },
+                            { icon: "bowl-hot", label: "Italiana", value: "italiana" },
+                            { detail: "", icon: "bowl-hot", label: "Nacional", value: "nacional" },
+                            { detail: "", icon: "coffee", label: "Cafeterias", value: "cafe" },
+                            { label: "Postres", icon: "cake", value: "postres" },
                         ]}
                         value={cuisine}
                         onChange={setCuisine}
+                        showSelected={true}
                         allowFreeText={false}
                     />
                 </div>
 
-                {/* 🔹 Ubicación */}
+                { /* Rango de Precios */}
                 <div className="filter-section">
-                    <DataSelect
-                        label="Ubicación"
-                        options={[
-                            { label: "100 metros" },
-                            { label: "1 Km" },
-                            { label: "Toda la ciudad" },
-                        ]}
-                        value={distance}
-                        onChange={setDistance}
-                        allowFreeText={false}
-                    />
+                    <label>Precios:</label>
+                    <PriceRangeSelect />
                 </div>
+
+                <div className="filter-section">
+                    <label>Ubicación:</label>
+                    <LocationSelect />
+                </div>
+
+
+
 
                 <div className="filter-actions">
-                    <button className="accept-btn" onClick={handleAccept}>Aplicar</button>
-                    <button className="cancel-btn" onClick={handleClose}>Cancelar</button>
+                    {/* <button className="accept-btn" onClick={handleAccept}>Aplicar</button> */}
+                    <button className="cancel-btn" onClick={handleClose}>Cerrar</button>
                 </div>
             </div>
         </div>

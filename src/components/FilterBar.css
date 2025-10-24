@@ -25,9 +25,15 @@
 /* Contenedor de los inputs */
 .filterbar-inputs {
   display: flex;
-
   gap: 10px;
   align-items: center;
+  justify-content: center;
+}
+.filterbar-ranges {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Botones */
@@ -58,27 +64,52 @@
   background: var(--ccshadow);
 }
 
-.filterbar-btn.primary {
+.filterbar-btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-family: "Epunda Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
   background: var(--colormaster);
   color: #fff;
 }
 
-.filterbar-btn.primary:hover {
+.filterbar-btn-primary:hover {
   background: var(--colorhover);
 }
 
-/* 📱 Pantallas medianas */
-@media (max-width: 768px) {
+/* Ocultar el botón .filtros en pantallas mayores a 1200px */
+@media screen and (min-width: 1000px) {
+  .filterbar-btn {
+    display: none;
+  }
+}
+
+/* Mostrar el botón .filtros en pantallas menores a 1200px */
+@media screen and (max-width: 999px) {
+  .filterbar-ranges {
+    display: none;
+  }
+  .filterbar-btn {
+    display: flex; /* o 'block', según tu diseño */
+    align-items: center;
+  }
+
   .filterbar-container {
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    gap: 5px;
     padding: 5px 0px;
   }
   .filterbar-inputs {
     width: 100%;
     gap: 5px;
-    justify-content: start;
   }
 
   /* Botones */
@@ -86,31 +117,38 @@
     width: 100%;
     gap: 5px;
   }
-
-  /* Cada DataSelect ocupa el 100% del ancho */
-  .filterbar-container .banner-select {
-    /* width: 100% !important; */
-  }
-
-  .filterbar-actions {
-    /* justify-content: space-between; */
-  }
-
-  .filterbar-btn {
-    flex: 1;
-    justify-content: center;
-    font-size: 16px;
-  }
 }
 
 /* 📱 Pantallas pequeñas */
 @media (max-width: 512px) {
+  .filterbar-actions {
+    display: flex;
+    width: 100%;
+  }
+
+  .filterbar-btn,
+  .filterbar-btn-primary {
+    flex: 1; /* cada botón ocupa el mismo ancho */
+    justify-content: center; /* centra el contenido */
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .filterbar-btn:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .filterbar-btn-primary:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
   /* .filterbar-container {
     gap: 10px;
     padding: 10px;
   } */
 
-  /* .filterbar-actions {
+  /* .filterbar-inputs {
     flex-direction: column;
     gap: 8px;
     width: 100%;

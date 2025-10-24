@@ -64,7 +64,7 @@ export default function SearchBar({ onSubmit }) {
                     options={[
                         { label: "Ver todos los restaurantes", icon: "store", value: "" },
                         { label: "Comida Italiana", icon: "dish", value: "italiana" },
-                        { label: "Comida Japonesa", icon: "bowl-rice", value: "pajonesa" },
+                        { label: "Comida Japonesa", icon: "bowl-rice", value: "japonesa" },
                     ]}
                     icon="store"
                     value={query}

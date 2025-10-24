@@ -52,7 +52,7 @@ export default function PriceRangeSelect() {
                 <box-icon name="money" color="var(--ccborde)" size="sm"></box-icon>
                 <span>{min}-{max} Bs</span>
 
-                <i className={`bx bx-chevron-${open ? "up" : "down"} bx-xs`}></i>
+                {/* <i className={`bx bx-chevron-${open ? "up" : "down"} bx-xs`}></i> */}
             </button>
 
             {/* Modal flotante */}

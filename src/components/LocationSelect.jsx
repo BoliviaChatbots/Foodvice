@@ -78,7 +78,7 @@ export default function LocationSelect() {
                         ? `GPS On (${distance})`
                         : "Ubicación"}
                 </span>
-                <i className={`bx bx-chevron-${open ? "up" : "down"} bx-xs`}></i>
+                {/* <i className={`bx bx-chevron-${open ? "up" : "down"} bx-xs`}></i> */}
             </button>
 
             {/* Modal */}
@@ -118,9 +118,9 @@ export default function LocationSelect() {
                                 value={distance}
                                 onChange={(e) => setDistance(e.target.value)}
                             >
+                                <option value="0">Toda la Ciudad</option>
                                 <option value="1">1 Km</option>
                                 <option value="5">5 Km</option>
-                                <option value="0">Toda la Ciudad</option>
                             </select>
                         </div>
 
