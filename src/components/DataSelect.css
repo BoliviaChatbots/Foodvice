@@ -63,7 +63,7 @@
   font-weight: 500;
   background: #fff; /* fondo blanco */
   color: var(--colortxt); /* texto con tu variable */
-  border: 1px solid #adabab;
+  border: 1px solid var(--ccshadow);
   border-radius: 8px;
   margin-top: 6px;
   min-width: 230px;

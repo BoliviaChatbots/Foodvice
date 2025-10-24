@@ -24,7 +24,6 @@
 
 /* Contenedor de los inputs */
 .filterbar-inputs {
-  width: 70%;
   display: flex;
 
   gap: 10px;
@@ -33,7 +32,6 @@
 
 /* Botones */
 .filterbar-actions {
-  width: 30%;
   display: flex;
   gap: 10px;
   align-items: center;

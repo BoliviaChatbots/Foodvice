@@ -4,26 +4,30 @@ import { persist } from "zustand/middleware";
 export const useSearchStore = create(
   persist(
     (set) => ({
-      // 🔹 Búsqueda general
-      city: "Santa Cruz",
+      city: "",
       query: "",
-      recentSearches: [],
+      cuisine: "",
+      priceStart: 0,
+      priceEnd: 200,
+      latitude: null,
+      longitude: null,
+      locationEnabled: false,
+      distance: "0",
+
       setCity: (city) => set({ city }),
       setQuery: (query) => set({ query }),
-      clearSearches: () => set({ recentSearches: [] }),
+      setCuisine: (cuisine) => set({ cuisine }),
+      setPriceRange: (min, max) => set({ priceStart: min, priceEnd: max }),
 
-      // 🔹 Filtros
-      priceRange: 50,
-      level: 0,
-      cuisine: "",
-      distance: "100 metros",
-      setPriceRange: (val) => set({ priceRange: val }),
-      setLevel: (val) => set({ level: val }),
-      setCuisine: (val) => set({ cuisine: val }),
-      setDistance: (val) => set({ distance: val }),
+      // 🔹 Ubicación
+      setLocation: (lat, lon) =>
+        set({ latitude: lat, longitude: lon, locationEnabled: true }),
+      clearLocation: () =>
+        set({ latitude: null, longitude: null, locationEnabled: false }),
+      setDistance: (distance) => set({ distance }),
     }),
     {
-      name: "search-storage", // Nombre del localStorage
+      name: "search-storage",
     }
   )
 );

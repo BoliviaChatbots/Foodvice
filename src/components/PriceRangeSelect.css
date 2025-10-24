@@ -1,0 +1,199 @@
+.price-select-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botón estilo filtro */
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--colormaster);
+  font-family: "Epunda Sans", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.filter-button:hover {
+  background: var(--ccshadow);
+}
+
+.filter-button.active {
+  background: var(--ccshadow);
+}
+
+.filter-button i {
+  vertical-align: middle;
+}
+
+/* Modal flotante */
+.price-modal {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--ccshadow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 10;
+  width: 260px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px;
+}
+
+.modal-header {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  color: var(--colorneg);
+}
+
+/* =======================================================
+   🔹 INICIO NUEVO ESTILO RANGE — Selector de Precio
+   ======================================================= */
+.sliders {
+  position: relative;
+  height: 10px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Línea base */
+.sliders::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Línea verde activa entre min y max */
+.slider-track {
+  position: absolute;
+  height: 4px;
+  background: linear-gradient(90deg, #00a676, #00967a);
+  border-radius: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: all 0.25s ease;
+}
+
+/* Sliders transparentes sobre la línea */
+.sliders input[type="range"] {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 2;
+}
+
+/* ===== Pulgar (thumb) estilo moderno ===== */
+.sliders input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  color: var(--colormaster);
+  background: var(--colormaster);
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: all;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sliders input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sliders input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--colormaster);
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sliders input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Etiquetas de valores */
+.values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #024d63;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* =======================================================
+   🔹 FIN NUEVO ESTILO RANGE
+   ======================================================= */
+
+.note {
+  font-size: 12px;
+  color: #777;
+  margin-top: -4px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.btn-reset,
+.btn-apply {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+
+.btn-reset {
+  background: none;
+  color: #666;
+}
+
+.btn-apply {
+  background: var(--colormaster);
+  color: white;
+}
+
+.btn-apply:hover {
+  background: #005f53;
+}
