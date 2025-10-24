@@ -9,7 +9,7 @@ import FilterBar from '../components/FilterBar'
 export const Restaurante = () => {
     return (
         <div>
-            <FilterBar />
+
 
             <RestaurantPage />
 
