@@ -104,7 +104,9 @@
   height: 4px;
   background: transparent;
   pointer-events: none;
+  appearance: none;
   -webkit-appearance: none;
+  -moz-appearance: none;
   z-index: 2;
 }
 

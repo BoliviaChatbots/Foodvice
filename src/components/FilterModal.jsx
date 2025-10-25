@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useSearchStore } from "../store/useSearchStore";
 import DataSelect from "./DataSelect";
 import "./FilterModal.css";
@@ -7,27 +7,22 @@ import LocationSelect from "./LocationSelect";
 
 export default function FilterModal({ setShowFilters }) {
     const { city, setCity, cuisine, setCuisine } = useSearchStore();
+    const [closing, setClosing] = useState(false); // Estado para la animación de salida
 
-    const [closing, setClosing] = useState(false); // 👈 nuevo estado para animación de salida
-
-    const handleClose = () => {
+    // ✅ useCallback: evita que handleClose cambie en cada render
+    const handleClose = useCallback(() => {
         setClosing(true); // activa la animación de salida
         setTimeout(() => setShowFilters(false), 300); // espera antes de desmontar
-    };
+    }, [setShowFilters]);
 
-    // const handleAccept = () => {
-    //     console.log("Filtros aplicados:", { priceRange, level, cuisine, distance });
-    //     handleClose(); // también cierra con animación
-    // };
-
-    const handleEsc = (e) => {
-        if (e.key === "Escape") handleClose();
-    };
-
+    // ✅ Maneja la tecla Escape (definida dentro del useEffect para evitar dependencias extra)
     useEffect(() => {
+        const handleEsc = (e) => {
+            if (e.key === "Escape") handleClose();
+        };
         document.addEventListener("keydown", handleEsc);
         return () => document.removeEventListener("keydown", handleEsc);
-    }, []);
+    }, [handleClose]); // dependemos solo de la versión estable de handleClose
 
     return (
         <div className="filter-modal-overlay" onClick={handleClose}>
@@ -51,7 +46,7 @@ export default function FilterModal({ setShowFilters }) {
                         placeholder="Selecciona una ciudad..."
                         header="Ciudades:"
                         options={[
-                            { detail: "", icon: "map-pin", label: "Santa Cruz", value: "Santa Cruz" },
+                            { icon: "map-pin", label: "Santa Cruz", value: "Santa Cruz" },
                             { icon: "map-pin", label: "Cochabamba", value: "Cochabamba" },
                             { detail: "Ciudad Capital - Altura", icon: "map-pin", label: "La Paz", value: "La Paz" },
                         ]}
@@ -61,7 +56,8 @@ export default function FilterModal({ setShowFilters }) {
                         allowFreeText={false}
                     />
                 </div>
-                {/* Comida */}
+
+                {/* 🔹 Cocina */}
                 <div className="filter-section">
                     <label>Cocina:</label>
                     <DataSelect
@@ -72,11 +68,11 @@ export default function FilterModal({ setShowFilters }) {
                         placeholder="Tipo Comida"
                         header="Comida:"
                         options={[
-                            { detail: "", icon: "world", label: "Todos", value: "" },
+                            { icon: "world", label: "Todos", value: "" },
                             { icon: "bowl-hot", label: "Italiana", value: "italiana" },
-                            { detail: "", icon: "bowl-hot", label: "Nacional", value: "nacional" },
-                            { detail: "", icon: "coffee", label: "Cafeterias", value: "cafe" },
-                            { label: "Postres", icon: "cake", value: "postres" },
+                            { icon: "bowl-hot", label: "Nacional", value: "nacional" },
+                            { icon: "coffee", label: "Cafeterías", value: "cafe" },
+                            { icon: "cake", label: "Postres", value: "postres" },
                         ]}
                         value={cuisine}
                         onChange={setCuisine}
@@ -85,22 +81,19 @@ export default function FilterModal({ setShowFilters }) {
                     />
                 </div>
 
-                { /* Rango de Precios */}
+                {/* 🔹 Rango de precios */}
                 <div className="filter-section">
                     <label>Precios:</label>
                     <PriceRangeSelect />
                 </div>
 
+                {/* 🔹 Ubicación */}
                 <div className="filter-section">
                     <label>Ubicación:</label>
                     <LocationSelect />
                 </div>
-
-
-
-
+                {/* 🔹 Acciones */}
                 <div className="filter-actions">
-                    {/* <button className="accept-btn" onClick={handleAccept}>Aplicar</button> */}
                     <button className="cancel-btn" onClick={handleClose}>Cerrar</button>
                 </div>
             </div>
