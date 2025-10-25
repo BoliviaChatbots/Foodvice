@@ -7,6 +7,8 @@ export default function BannerRestaurants({ city, query, count }) {
 
     const currentCity = city || globalCity || "tu ciudad";
     const currentQuery = query || globalQuery || "resultados";
+    console.log(currentQuery);
+
     const resultsText =
         count === 0
             ? "Sin resultados"

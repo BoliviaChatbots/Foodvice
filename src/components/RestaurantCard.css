@@ -10,7 +10,7 @@
   transition: all 0.3s ease;
   cursor: pointer;
   font-family: "Epunda Sans", sans-serif;
-  height: 170px; /* altura más compacta */
+  height: 200px; /* altura más compacta */
   border-radius: 10px;
   margin-bottom: 10px;
 }
