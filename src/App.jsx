@@ -37,7 +37,7 @@ function App() {
         <Route path="/" element={<Inicio />} />
         <Route path="/restaurants" element={<Restaurantes />} />
         <Route path="/showroom" element={<Showing />} />
-        <Route path="/restaurant/:slug" element={<Restaurante />} />
+        <Route path="/restaurant/:url" element={<Restaurante />} />
         <Route path="/login" element={<LoginRegister />} />
       </Routes>
       <Footer />

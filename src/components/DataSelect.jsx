@@ -12,16 +12,27 @@ const DataSelect = ({
     width = "100%",
     showSelected = true,
     allowFreeText = false,
-    header = "", // 🆕 encabezado opcional
+    header = "",
 }) => {
     const [open, setOpen] = useState(false);
-    const [search, setSearch] = useState(value || "");
+    const [search, setSearch] = useState("");
     const [filtered, setFiltered] = useState([]);
     const [showEmpty, setShowEmpty] = useState(false);
-    const [error, setError] = useState(""); // 🆕 Manejo de error visual
+    const [error, setError] = useState("");
     const selectRef = useRef(null);
 
-    // 🔹 Filtrar o mostrar todas las opciones
+    // 🔹 Actualizar el texto mostrado según el value recibido (desde Zustand)
+    useEffect(() => {
+        if (value !== "") {
+            const found = options.find((opt) => opt.value == value);
+            if (found) setSearch(found.label);
+            else setSearch("");
+        } else {
+            setSearch("");
+        }
+    }, [value, options]);
+
+    // 🔹 Filtrar opciones
     useEffect(() => {
         let filteredOptions;
         if (!allowFreeText && open) {
@@ -36,7 +47,6 @@ const DataSelect = ({
         }
         setFiltered(filteredOptions);
 
-        // Mostrar mensaje de “no hay resultados”
         if (search && filteredOptions.length === 0 && allowFreeText) {
             setShowEmpty(true);
         } else {
@@ -44,34 +54,23 @@ const DataSelect = ({
         }
     }, [search, options, allowFreeText, open]);
 
-    // 🔹 Ocultar menú al hacer clic fuera
+    // 🔹 Cerrar al hacer clic fuera
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (selectRef.current && !selectRef.current.contains(e.target)) {
                 setOpen(false);
                 setShowEmpty(false);
-                setError(""); // Limpia errores al cerrar
-
-                // 🆕 Mantener valor visible al perder foco
-                if (!search && value) setSearch(value);
+                setError("");
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [value, search]);
+    }, []);
 
-    // 🔹 Actualiza visualmente si el valor externo cambia (por ejemplo, limpieza desde Zustand)
-    useEffect(() => {
-        if (value === "") {
-            setSearch("");
-        }
-    }, [value]);
-
-    // 🧩 Maneja selección de opción
+    // 🔹 Selección de opción
     const handleSelect = (opt) => {
         const selectedValue = opt.value ?? null;
 
-        // ⚠️ Si la opción no tiene "value", mostrar error
         if (selectedValue === null || selectedValue === undefined) {
             setError("⚠️ Esta opción no tiene un valor asignado");
             setShowEmpty(false);
@@ -79,7 +78,6 @@ const DataSelect = ({
             return;
         }
 
-        // ✅ Si tiene valor, proceder normalmente
         onChange(selectedValue);
         if (showSelected) setSearch(opt.label || opt);
         else setSearch("");
@@ -90,7 +88,11 @@ const DataSelect = ({
 
     return (
         <div className={`banner-select ${className}`} style={{ width }} ref={selectRef}>
-            {label && <label className="data-select-label">{label}</label>}
+            {label && (
+                <label htmlFor={label} className="data-select-label">
+                    {label}
+                </label>
+            )}
 
             <div
                 className={`banner-input-box ${open ? "focus" : ""}`}
@@ -110,6 +112,7 @@ const DataSelect = ({
                 )}
 
                 <input
+                    id={label}
                     name={label || "dataselect"}
                     type="text"
                     value={search}
@@ -129,7 +132,6 @@ const DataSelect = ({
                 />
             </div>
 
-            {/* 🔽 Lista de opciones */}
             {open && filtered.length > 0 && (
                 <div className="dropdown">
                     {header && <div className="dropdown-header">{header}</div>}
@@ -153,14 +155,11 @@ const DataSelect = ({
                 </div>
             )}
 
-            {/* 🔹 Mensajes dinámicos */}
             {open && showEmpty && allowFreeText && (
                 <div className="dropdown empty fade-out">No hay resultados</div>
             )}
 
-            {error && (
-                <div className="dropdown empty fade-out error">{error}</div>
-            )}
+            {error && <div className="dropdown empty fade-out error">{error}</div>}
         </div>
     );
 };

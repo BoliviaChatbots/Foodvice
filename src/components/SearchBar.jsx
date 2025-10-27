@@ -17,14 +17,11 @@ export default function SearchBar({ onSubmit }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const validCities = ["Santa Cruz", "Cochabamba", "La Paz"];
-        const selectedCity = validCities.includes(city) ? city : "Santa Cruz";
-
-        const data = { city: selectedCity, query };
-        console.log("Cambio de Pagina===> 🔍 Enviando búsqueda:", data);
+        const data = { city, query };
+        //console.log("Cambio de Pagina===> 🔍 Enviando búsqueda:", data);
 
         // 🔹 Guardar en Zustand (ya se guardan por setCity/setQuery)
-        setCity(selectedCity);
+        setCity(city);
         setQuery(query);
 
         // 🔹 Si existe una función onSubmit (por ejemplo para tracking), la ejecutamos
@@ -46,9 +43,9 @@ export default function SearchBar({ onSubmit }) {
                     placeholder="Selecciona una ciudad..."
                     header="Ciudades disponibles:"
                     options={[
-                        { detail: "Ciudad Oriental - Calor", icon: "map-pin", label: "Santa Cruz", value: "Santa Cruz" },
-                        { icon: "map-pin", label: "Cochabamba", value: "Cochabamba" },
-                        { detail: "Ciudad Capital - Altura", icon: "map-pin", label: "La Paz", value: "La Paz" },
+                        { icon: "map-pin", label: "Santa Cruz", value: "1" },
+                        { icon: "map-pin", label: "Cochabamba", value: "2" },
+                        { icon: "map-pin", label: "La Paz", value: "3" },
                     ]}
                     value={city}
                     onChange={setCity}

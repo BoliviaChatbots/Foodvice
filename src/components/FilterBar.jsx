@@ -57,9 +57,9 @@ export default function FilterBar() {
                         placeholder="Selecciona una ciudad..."
                         header="Ciudades:"
                         options={[
-                            { icon: "map-pin", label: "Santa Cruz", value: "Santa Cruz" },
-                            { icon: "map-pin", label: "Cochabamba", value: "Cochabamba" },
-                            { icon: "map-pin", label: "La Paz", value: "La Paz" },
+                            { icon: "map-pin", label: "Santa Cruz", value: "1" },
+                            { icon: "map-pin", label: "Cochabamba", value: "2" },
+                            { icon: "map-pin", label: "La Paz", value: "3" },
                         ]}
                         value={city}
                         onChange={setCity}

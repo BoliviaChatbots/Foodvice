@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 export const useSearchStore = create(
   persist(
     (set) => ({
-      city: "",
+      city: "1",
       query: "",
       cuisine: "",
       priceStart: 0,
@@ -14,7 +14,8 @@ export const useSearchStore = create(
       locationEnabled: false,
       distance: "0",
 
-      setCity: (city) => set({ city }),
+      // setCity: (city) => set({ city }),
+      setCity: (city) => set({ city: String(city) }),
       setQuery: (query) => set({ query }),
       setCuisine: (cuisine) => set({ cuisine }),
       setPriceRange: (min, max) => set({ priceStart: min, priceEnd: max }),
