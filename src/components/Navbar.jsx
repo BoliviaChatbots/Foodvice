@@ -46,7 +46,7 @@ export default function Navbar() {
                                     <img
                                         src={user.avatar || "/icons/avatar-default.png"}
                                         alt={user.name}
-                                        className="user-avatar"
+                                        className="user-avatar-img"
                                     />
 
                                 </div>

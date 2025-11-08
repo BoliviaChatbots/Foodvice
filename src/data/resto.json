@@ -11,7 +11,25 @@
     "nivel": 8.2,
     "comidaImagen": "/restaurantes/1/food-1.jpg",
     "comidaNombre": "Pizza Hawayana",
-    "comidaPrecio": 50
+    "comidaPrecio": 50,
+    "diasAtencion": {
+      "lunes": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "domingo": ["12:00", "13:00", "14:00"],
+      "miércoles": ["12:00", "13:00", "14:00", "19:00", "20:00"],
+      "jueves": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "viernes": [
+        "12:00",
+        "13:00",
+        "14:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ],
+      "sábado": ["13:00", "14:00", "15:00", "20:00", "21:00", "22:00"],
+      "martes": []
+    },
+    "maxPersonasPorMesa": 6
   },
   {
     "id": 2,
@@ -25,7 +43,25 @@
     "nivel": 9.5,
     "comidaImagen": "/restaurantes/2/food-1.jpg",
     "comidaNombre": "Cuadril Doble",
-    "comidaPrecio": 80
+    "comidaPrecio": 80,
+    "diasAtencion": {
+      "lunes": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "martes": ["12:00", "13:00", "14:00"],
+      "miércoles": ["12:00", "13:00", "14:00", "19:00", "20:00"],
+      "jueves": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "viernes": [
+        "12:00",
+        "13:00",
+        "14:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ],
+      "sábado": ["13:00", "14:00", "15:00", "20:00", "21:00", "22:00"],
+      "domingo": ["13:00", "14:00", "15:00", "20:00", "21:00", "22:00"]
+    },
+    "maxPersonasPorMesa": 6
   },
   {
     "id": 3,
@@ -39,7 +75,25 @@
     "nivel": 8,
     "comidaImagen": "/restaurantes/3/food-1.jpg",
     "comidaNombre": "Sushi Familiar",
-    "comidaPrecio": 150
+    "comidaPrecio": 150,
+    "diasAtencion": {
+      "lunes": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "martes": ["12:00", "13:00", "14:00"],
+      "miércoles": ["12:00", "13:00", "14:00", "19:00", "20:00"],
+      "jueves": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "viernes": [
+        "12:00",
+        "13:00",
+        "14:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ],
+      "sábado": ["13:00", "14:00", "15:00", "20:00", "21:00", "22:00"],
+      "domingo": []
+    },
+    "maxPersonasPorMesa": 6
   },
   {
     "id": 4,
@@ -84,7 +138,6 @@
     "ciudad": "Cochabamba",
     "promo": "Prom 2x1",
     "nivel": 10,
-
     "comidaImagen": "/restaurantes/7/food-1.jpg",
     "comidaNombre": "La Picante de Pollo",
     "comidaPrecio": 10

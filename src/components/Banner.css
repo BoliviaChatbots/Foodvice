@@ -10,7 +10,7 @@
   width: 100%;
   min-height: 350px;
   border-radius: 20px;
-  background: var(--colortxt);
+  background: var(--colormaster);
   color: var(--colorpri);
   display: flex;
   flex-direction: column;

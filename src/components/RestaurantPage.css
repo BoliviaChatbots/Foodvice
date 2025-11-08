@@ -1,331 +1,105 @@
-/* RestaurantPage.css
-   Minimalista / moderno - paleta consistente con tu app
-   Ajusta variables si ya tienes un :root global.
-*/
-
-:root {
-  --bg: #ffffff;
-  --muted: #6b7277;
-  --accent: #12676a;
-  --accent-2: #2ecc71;
-  --card-bg: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.08);
-  --radius: 14px;
-  --max-width: 1200px;
-  --container-pad: 20px;
-  --font: "Epunda Sans", sans-serif;
-}
-
-.restaurant-page-root {
-  font-family: var(--font);
-  color: #222;
-  background: var(--bg);
-}
-
-/* HERO */
-.restaurant-hero {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  border-bottom-left-radius: 22px;
-  border-bottom-right-radius: 22px;
-  overflow: hidden;
-}
-
-.hero-overlay {
+/* ====== ESTRUCTURA GENERAL ====== */
+.restaurant-page {
   width: 100%;
+  overflow-x: hidden;
+  background-color: var(--colorbla);
+}
+
+/* ====== LAYOUT PRINCIPAL ====== */
+.restaurant-columns {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 22px var(--container-pad);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(0, 0, 0, 0.45) 100%
-  );
-  color: #fff;
+  align-items: flex-start;
+  gap: 15px;
 }
 
-.hero-left {
-  max-width: 70%;
-}
-
-.hero-title {
-  font-size: 28px;
-  margin: 0 0 6px 0;
-  font-weight: 700;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-}
-
-.hero-meta {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.badge {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 18px;
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.badge.rating {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--accent-2);
-}
-
-.badge.tipo {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-}
-
-.badge.promo {
-  background: #f39c12;
-  color: #fff;
-}
-
-/* hero actions */
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.btn-action {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.btn-action.outline {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-/* MAIN LAYOUT */
-.container {
-  max-width: var(--max-width);
-  margin: 26px auto;
-  padding: 0 var(--container-pad);
-}
-
-/* Grid: left content + right sidebar */
-.restaurant-main {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 24px;
-  align-items: start;
-}
-
-/* Left column (stacked sections) */
-.left-col {
+.left-column,
+.right-column {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 30px;
 }
 
-/* Cards / sections look */
-.card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 14px;
-  box-shadow: 0 6px 20px var(--shadow);
+/* ====== COLUMNAS ====== */
+.left-column {
+  flex: 2;
 }
 
-/* Section title */
-.section-title {
-  font-size: 18px;
-  margin: 0 0 12px 0;
-  font-weight: 700;
+.right-column {
+  flex: 1;
+  position: relative;
 }
 
-/* Photo slider */
-.photoswiper {
+/* ====== SECCIONES ====== */
+section {
+  background: var(--colorbla);
+  padding: 15px;
+}
+
+section h2 {
+  font-size: 1.4rem;
+  color: var(--colormaster);
+  margin-bottom: 0.8rem;
+}
+
+section p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ====== STICKY MENU ====== */
+.sticky-menu-container {
+  position: relative;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.sticky-menu-container.active {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  /* animation: slideDown 0.25s ease-in-out; */
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ====== MAPA Y OTROS ====== */
+.map-placeholder {
+  width: 100%;
+  height: 220px;
+  background: #e5e5e5;
   border-radius: 10px;
-  overflow: hidden;
-}
-.slide-img {
-  width: 100%;
-  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.slide-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* details */
-.detail-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 10px;
-}
-.muted {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* menu */
-.menu-list {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-.menu-section {
-  flex: 1 1 280px;
-  min-width: 220px;
-}
-.menu-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 10px 8px;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
-}
-.menu-name {
-  font-weight: 600;
-}
-.menu-desc {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 6px;
-}
-
-/* Right column */
-.right-col {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* Reservation card */
-.reservation-card {
-  padding: 14px;
-  border-radius: 12px;
-}
-.small-title {
-  margin: 0 0 8px 0;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-/* Reservation form */
-.reservation-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.reservation-form label {
-  font-size: 13px;
   color: #333;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.reservation-form input,
-.reservation-form select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #fff;
-}
-.btn-reserve {
-  margin-top: 6px;
-  padding: 10px;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  font-size: 0.95rem;
 }
 
-/* featured plate */
-.featured-plate .plate-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.featured-plate img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* small map */
-.small-map iframe {
-  width: 100%;
-  height: 160px;
-  border: none;
-  border-radius: 8px;
-}
-
-/* messages */
-.reserve-message {
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--accent);
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .restaurant-main {
-    grid-template-columns: 1fr 340px;
-  }
-  .slide-img {
-    height: 260px;
-  }
-}
+/* ====== RESPONSIVE ====== */
 @media (max-width: 900px) {
-  .restaurant-main {
-    grid-template-columns: 1fr 320px;
-    gap: 16px;
+  .restaurant-columns {
+    flex-direction: column;
   }
-}
-@media (max-width: 768px) {
-  .restaurant-main {
-    grid-template-columns: 1fr;
+
+  .right-column {
+    flex: none;
+    width: 100%;
   }
-  .right-col {
-    order: 2;
-  }
-  .left-col {
-    order: 1;
-  }
-  .slide-img {
-    height: 260px;
-  }
-}
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 20px;
-  }
-  .slide-img {
-    height: 200px;
-  }
-  .restaurant-main {
-    gap: 10px;
-    padding: 0 12px;
-  }
-  .hero-overlay {
-    padding: 14px 12px;
+
+  .sticky-menu-container.active {
+    position: fixed;
+    top: 0;
   }
 }

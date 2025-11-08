@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchStore } from "../store/useSearchStore";
+//import { useSearchStore } from "../store/useSearchStore";
 import restos from "../data/resto.json";
 
 import BannerRestaurants from "../components/BannerRestaurants";
@@ -8,7 +8,10 @@ import RestaurantList from "../components/RestaurantList";
 import RestaurantMap from "../components/RestaurantMap";
 
 export default function Restaurantes() {
-    const { city, query } = useSearchStore();
+    //const { city, query } = useSearchStore();
+    const city = "Santa Cruz";
+    const query = "";
+
 
     // 🔹 Filtrado de datos según ciudad y búsqueda
     const filtered = restos.filter((r) => {

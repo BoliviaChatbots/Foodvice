@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+    "id": 1,
+    "nombre": "Ensalada Mediterránea",
+    "fecha": "2025-10-12",
+    "restaurante": "La Vita Bella"
+  },
+  {
+    "url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+    "id": 2,
+    "nombre": "Pasta Carbonara",
+    "fecha": "2025-10-11",
+    "restaurante": "La Vita Bella"
+  },
+  {
+    "url": "/restaurantes/food-2.jpg",
+    "id": 3,
+    "nombre": "Postre de Chocolate",
+    "fecha": "2025-10-10",
+    "restaurante": "Dulce Tentación"
+  },
+  {
+    "url": "/restaurantes/food-1.jpg",
+    "id": 4,
+    "nombre": "Pizza Margarita",
+    "fecha": "2025-10-09",
+    "restaurante": "La Vita Bella"
+  },
+  {
+    "url": "/restaurantes/food-3.jpg",
+    "id": 5,
+    "nombre": "Tacos al Pastor",
+    "fecha": "2025-10-08",
+    "restaurante": "El Ranchito"
+  },
+  {
+    "url": "http://192.168.0.16:8000/media/restaurant_images/rest2.jpg",
+    "id": 6,
+    "nombre": "Hamburguesa Gourmet API",
+    "fecha": "2025-10-07",
+    "restaurante": "Burger Club"
+  },
+  {
+    "url": "http://192.168.0.16:8000/media/restaurant_images/rest3.jpg",
+    "id": 7,
+    "nombre": "Smoothie de Frutas",
+    "fecha": "2025-10-06",
+    "restaurante": "Green Spot"
+  },
+  {
+    "url": "https://images.unsplash.com/photo-1600891963933-05c0f7d18e00",
+    "id": 8,
+    "nombre": "Café Espresso https",
+    "fecha": "2025-10-05",
+    "restaurante": "Café Roma"
+  },
+  {
+    "url": "http://192.168.0.16:8000/media/restaurant_images/rest1.jpg",
+    "id": 9,
+    "nombre": "Sushi Variado API",
+    "fecha": "2025-10-04",
+    "restaurante": "Tokyo Grill"
+  },
+  {
+    "url": "/restaurantes/food-1.jpg",
+    "id": 10,
+    "nombre": "Té helado",
+    "fecha": "2025-10-03",
+    "restaurante": "Café Roma"
+  }
+]

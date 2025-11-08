@@ -1,0 +1,92 @@
+.restaurant-menu {
+  /* padding: 40px 20px; */
+  max-width: 1200px;
+  margin: auto;
+}
+
+.menu-title {
+  font-size: 35px;
+  /* margin-top: 25px; */
+  font-weight: 700;
+  color: var(--colormaster);
+}
+
+.menu-category {
+  margin-bottom: 40px;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #444;
+  border-bottom: 2px solid #ccc;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.menu-item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+  /* transform: translateY(-3px); */
+}
+
+.menu-img-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.menu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dividir {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-info {
+  padding: 15px;
+}
+
+.menu-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.menu-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+
+.menu-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #12676a;
+}
+
+.no-menu {
+  color: #666;
+  text-align: center;
+  font-size: 1rem;
+}

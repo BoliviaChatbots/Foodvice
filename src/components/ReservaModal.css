@@ -1,0 +1,257 @@
+/* Variables útiles (ajusta --header-height si tu header tiene otra altura) */
+:root {
+  --header-height: 72px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-soft: 0 6px 28px rgba(10, 10, 10, 0.08);
+  --font-family: "Epunda Sans", sans-serif;
+}
+
+/* Contenedor del bloque */
+.reserva-block {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: 14px; /* píxeles como pediste */
+}
+
+/* Botón principal tipo bloque con los 3 botones */
+.reserva-button-group {
+  width: 100%;
+  display: flex;
+  gap: 3px;
+  background: var(--colormaster);
+  padding: 6px;
+  border-radius: 999px;
+  align-items: center;
+}
+
+/* Cada botón pequeño */
+.res-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  min-width: 100px;
+  justify-content: center;
+  color: var(--colormaster);
+  font-weight: 600;
+}
+
+/* icon + label */
+.res-btn .icon {
+  font-size: 16px;
+}
+.res-btn .label {
+  font-size: 16px;
+}
+
+/* activo */
+.res-btn.active,
+.res-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* overlay */
+.reserva-overlay {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.38);
+  z-index: 55;
+  backdrop-filter: blur(0px);
+}
+
+/* modal base (posicionado justo debajo del bloque en pantallas grandes) */
+.reserva-modal {
+  position: absolute;
+  top: calc(100% + 10px); /* justo debajo del bloque */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  max-width: calc(100vw - 40px);
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 14px;
+  z-index: 60;
+  animation: popIn 160ms ease;
+}
+
+/* responsive: en móviles, modal centrado y fijo */
+@media (max-width: 768px) {
+  .reserva-modal {
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 92%; */
+    max-width: 350px;
+  }
+}
+
+/* calendario */
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cal-nav {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+}
+.cal-title {
+  font-weight: 700;
+  color: var(--colormaster);
+  text-transform: lowercase;
+}
+
+/* small weekday headers */
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.cal-weekday {
+  font-size: 12px;
+  color: #8a8a8a;
+  text-align: center;
+}
+
+/* grid de dias */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.cal-cell {
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #243a36;
+}
+
+.cal-cell.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.cal-cell.disabled {
+  color: #cfcfcf;
+  cursor: not-allowed;
+  font-weight: 500;
+}
+
+.cal-cell.active:hover {
+  background: #eef8f3;
+  color: var(--colormaster);
+}
+
+.cal-cell.selected {
+  background: var(--colormaster);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(11, 107, 85, 0.12);
+}
+.cal-cell.today {
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  font-weight: bold;
+  background-color: rgba(0, 188, 212, 0.1);
+}
+
+.cal-cell.today.selected {
+  background-color: #00bcd4;
+  color: white;
+}
+
+/* modal header for hours/personas */
+.modal-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.close-x {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: auto;
+  color: #666;
+}
+.modal-title {
+  font-weight: 700;
+  text-align: center;
+  flex: 1;
+  color: var(--colormaster);
+}
+
+/* horas grid / pills */
+.horas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+  gap: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+.hora-pill {
+  min-height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #213a35;
+  transition: all 0.14s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hora-pill:hover {
+  background: #f6fdf8;
+  color: var(--colormaster);
+}
+.hora-pill.selected {
+  background: #ffffff;
+  border: 2px solid var(--colormaster);
+  color: var(--colormaster);
+  box-shadow: 0 6px 20px rgba(11, 107, 85, 0.08);
+}
+
+/* small helper text */
+.no-data {
+  color: #888;
+  text-align: center;
+  padding: 12px;
+}
+
+/* animaciones */
+@keyframes popIn {
+  from {
+    transform: translate(-50%, -6px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

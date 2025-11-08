@@ -6,7 +6,8 @@ export default function RestaurantCard({ restaurante }) {
     const navigate = useNavigate();
 
     if (!restaurante) return null;
-    const url = nameToURL(restaurante.titulo);
+    // const url = nameToURL(restaurante.titulo); Escondite de almendras
+    const url = nameToURL("Escondite de almendras");
 
     const handleClick = () => {
         navigate(`/restaurant/${url}`);

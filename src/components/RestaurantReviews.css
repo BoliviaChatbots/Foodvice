@@ -1,0 +1,127 @@
+.restaurant-reviews {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #12676a; /* color principal */
+  margin: 0;
+}
+
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #333;
+}
+
+.avg-score {
+  font-size: 1.25rem;
+  background: #f2f8f7;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #12676a;
+}
+
+.stars {
+  color: #ffb400; /* golden stars */
+  font-size: 1rem;
+}
+
+.count {
+  color: #6b7277;
+  font-weight: 600;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-item {
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+}
+
+.review-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.review-user {
+  font-weight: 700;
+  color: #222;
+}
+
+.review-rating .stars-small {
+  color: #ffb400;
+  font-size: 0.95rem;
+}
+
+.review-text {
+  margin: 0 0 8px 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+.review-date {
+  font-size: 0.85rem;
+  color: #6b7277;
+}
+
+.no-reviews {
+  color: #666;
+  padding: 12px 0;
+}
+
+/* footer */
+.reviews-footer {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-write {
+  background: #12676a;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-write:hover {
+  opacity: 0.95;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .reviews-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .reviews-summary {
+    margin-top: 6px;
+  }
+}

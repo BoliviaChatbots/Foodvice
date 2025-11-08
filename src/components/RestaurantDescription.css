@@ -1,0 +1,124 @@
+.menu-title {
+  padding: 10px 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--colorneg);
+}
+
+.menu-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+}
+
+/* === GRID RESPONSIVE === */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 15px;
+  margin-top: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === TARJETA === */
+.offer-card-simple {
+  background: #fff;
+  border-radius: 14px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+/* === ENCABEZADO === */
+.offer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.offer-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.offer-label {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+/* Estados */
+.offer-label.active {
+  background: #9fd8bd;
+  color: var(--colormaster);
+}
+
+.offer-label.pending {
+  background: #fff3cd;
+  color: #a16207;
+}
+
+.offer-label.inactive {
+  background: #fde2e2;
+  color: #b91c1c;
+}
+
+/* === DESCUENTO === */
+.offer-discount-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discount-number {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #222222;
+  line-height: 1;
+}
+
+/* === DESCRIPCIÓN === */
+.offer-description {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* === FECHAS === */
+.offer-dates {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.offer-dates strong {
+  color: #000;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-card-simple {
+    padding: 1.2rem;
+  }
+
+  .discount-number {
+    font-size: 2.6rem;
+  }
+}

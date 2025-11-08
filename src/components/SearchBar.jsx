@@ -41,7 +41,7 @@ export default function SearchBar({ onSubmit }) {
                 <DataSelect
                     icon="map"
                     placeholder="Selecciona una ciudad..."
-                    header="Ciudades disponibles:"
+                    header="Ciudades:"
                     options={[
                         { icon: "map-pin", label: "Santa Cruz", value: "1" },
                         { icon: "map-pin", label: "Cochabamba", value: "2" },

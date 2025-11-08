@@ -1,0 +1,20 @@
+[
+  {
+    "usuario": "Carlos",
+    "comentario": "Excelente comida y servicio.",
+    "puntuacion": 5,
+    "fecha": "2025-09-02T12:00:00Z"
+  },
+  {
+    "usuario": "Lucía",
+    "comentario": "La carne estaba perfecta, volveré pronto.",
+    "puntuacion": 4,
+    "fecha": "2025-09-05T18:30:00Z"
+  },
+  {
+    "usuario": "Diego",
+    "comentario": "Buen ambiente, aunque un poco caro.",
+    "puntuacion": 4,
+    "fecha": "2025-09-07T20:00:00Z"
+  }
+]

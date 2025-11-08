@@ -1,0 +1,333 @@
+[
+  {
+    "id": 10,
+    "name": "Bambi",
+    "owner": null,
+    "cuisine": {
+      "id": 3,
+      "name": "Criolla"
+    },
+    "street": "Radial 17 1/2 entre 4to y 5to Anillo calle 4 #350",
+    "city": {
+      "id": 1,
+      "name": "Santa Cruz",
+      "state": 1,
+      "state_name": "Bolivia"
+    },
+    "state": {
+      "id": 1,
+      "name": "Bolivia"
+    },
+    "lat": "-17.8155009600000000",
+    "lng": "-63.8990590000000000",
+    "description": "El mejor lugar para comer milanesas de carne y de pollo.",
+    "rating": "4.90",
+    "is_active": true,
+    "phone": "+59172174790",
+    "created_at": "2025-08-23T00:50:32.587162Z",
+    "email": "pedrodennis007@gmail.com",
+    "imagen": "http://192.168.0.16:8000/media/restaurant/food-5.jpg",
+    "images": [],
+    "menu_items": [],
+    "offers": [],
+    "reviews": [],
+    "active_offer": null
+  },
+  {
+    "id": 7,
+    "name": "Pollos Rocky",
+    "owner": null,
+    "cuisine": {
+      "id": 2,
+      "name": "Japonesa"
+    },
+    "street": "Av Piraí 2do Anillo al frente del Hipermaxi",
+    "city": {
+      "id": 1,
+      "name": "Santa Cruz",
+      "state": 1,
+      "state_name": "Bolivia"
+    },
+    "state": {
+      "id": 1,
+      "name": "Bolivia"
+    },
+    "lat": "-17.8167178000000000",
+    "lng": "-63.1625078430000000",
+    "description": "La mejor experiencia en pollos.",
+    "rating": "4.70",
+    "is_active": true,
+    "phone": "+59172174790",
+    "created_at": "2025-08-23T00:16:46.598497Z",
+    "email": "pedrodennis007@gmail.com",
+    "imagen": "http://192.168.0.16:8000/media/restaurant/food-4.jpg",
+    "images": [],
+    "menu_items": [
+      {
+        "id": 9,
+        "category": {
+          "id": 1,
+          "name": "Platos"
+        },
+        "name": "Cuarto de pollo",
+        "description": "Pollo a la brasa",
+        "price": "32.00",
+        "is_available": true,
+        "created_at": "2025-08-30T03:35:13.400995Z",
+        "imagen": "http://192.168.0.16:8000/media/restaurant_menuimages/pollo_brasa.jpeg",
+        "restaurant": 7
+      }
+    ],
+    "offers": [],
+    "reviews": [],
+    "active_offer": null
+  },
+  {
+    "id": 1,
+    "name": "Restaurant Valencia",
+    "owner": null,
+    "cuisine": {
+      "id": 3,
+      "name": "Criolla"
+    },
+    "street": "Av Santos Dumont 4to Anillo pasando dos cuadras",
+    "city": {
+      "id": 1,
+      "name": "Santa Cruz",
+      "state": 1,
+      "state_name": "Bolivia"
+    },
+    "state": {
+      "id": 1,
+      "name": "Bolivia"
+    },
+    "lat": "-17.8253933438966850",
+    "lng": "-63.1844655646807850",
+    "description": "Toda clase de comida criolla nacional",
+    "rating": "4.00",
+    "is_active": true,
+    "phone": "59173116391",
+    "created_at": "2025-08-22T05:58:46.612873Z",
+    "email": "peddens@msn.com",
+    "imagen": "http://192.168.0.16:8000/media/restaurant/imagen_sOVS3lu.jpg",
+    "images": [],
+    "menu_items": [
+      {
+        "id": 8,
+        "category": {
+          "id": 1,
+          "name": "Platos"
+        },
+        "name": "Chicharron",
+        "description": "Carne de chancho en trocitos retostada con choclo y papa",
+        "price": "100.00",
+        "is_available": true,
+        "created_at": "2025-08-30T03:28:23.444514Z",
+        "imagen": "http://192.168.0.16:8000/media/restaurant_menuimages/chicharron.jpg",
+        "restaurant": 1
+      },
+      {
+        "id": 7,
+        "category": {
+          "id": 1,
+          "name": "Platos"
+        },
+        "name": "Lapping",
+        "description": "Carne blanda con jugo, habas, choclo y ensalada",
+        "price": "70.00",
+        "is_available": true,
+        "created_at": "2025-08-30T03:27:24.301259Z",
+        "imagen": "http://192.168.0.16:8000/media/restaurant_menuimages/lapping.jpg",
+        "restaurant": 1
+      }
+    ],
+    "offers": [],
+    "reviews": [],
+    "active_offer": null
+  },
+  {
+    "id": 11,
+    "name": "Hamburguesas Tobby",
+    "owner": null,
+    "cuisine": {
+      "id": 3,
+      "name": "Criolla"
+    },
+    "street": "Primer Anillo Avenida Cañoto 434",
+    "city": {
+      "id": 1,
+      "name": "Santa Cruz",
+      "state": 1,
+      "state_name": "Bolivia"
+    },
+    "state": {
+      "id": 1,
+      "name": "Bolivia"
+    },
+    "lat": "-17.7844001000000000",
+    "lng": "-63.1888648000000000",
+    "description": "Las mejores hamburguesas de Santa Cruz.",
+    "rating": "3.20",
+    "is_active": true,
+    "phone": "+59172174790",
+    "created_at": "2025-08-30T11:57:02.966154Z",
+    "email": "peddens@msn.com",
+    "imagen": "http://192.168.0.16:8000/media/restaurant/imagen_2dI3C4e.jpg",
+    "images": [],
+    "menu_items": [],
+    "offers": [],
+    "reviews": [],
+    "active_offer": null
+  },
+  {
+    "id": 8,
+    "name": "Escondite de almendras",
+    "owner": null,
+    "cuisine": {
+      "id": 5,
+      "name": "Italiana"
+    },
+    "street": "Av. 3 Pasos al Frente casi 5to Anillo",
+    "city": {
+      "id": 1,
+      "name": "Santa Cruz",
+      "state": 1,
+      "state_name": "Bolivia"
+    },
+    "state": {
+      "id": 1,
+      "name": "Bolivia"
+    },
+    "lat": "-17.7971274000000000",
+    "lng": "-63.1537414000000000",
+    "description": "Comida variada y con orquesta al vivo",
+    "rating": "3.00",
+    "is_active": true,
+    "phone": "+59172174790",
+    "created_at": "2025-08-23T00:18:22.279336Z",
+    "email": "pedrodennis007@gmail.com",
+    "imagen": "http://192.168.0.16:8000/media/restaurant/imagen_wFwSU7E.jpg",
+    "images": [
+      {
+        "id": 17,
+        "image": "http://192.168.0.16:8000/media/restaurant_images/rest1.jpg",
+        "restaurant": 8
+      },
+      {
+        "id": 18,
+        "image": "http://192.168.0.16:8000/media/restaurant_images/rest2.jpg",
+        "restaurant": 8
+      },
+      {
+        "id": 19,
+        "image": "http://192.168.0.16:8000/media/restaurant_images/rest3.jpg",
+        "restaurant": 8
+      }
+    ],
+    "menu_items": [
+      {
+        "id": 3,
+        "category": {
+          "id": 1,
+          "name": "Platos"
+        },
+        "name": "bife",
+        "description": "bife de lomito de primera",
+        "price": "25.00",
+        "is_available": false,
+        "created_at": "2025-08-24T04:15:56.266775Z",
+        "imagen": "http://192.168.0.16:8000/media/restaurant_menuimages/bife.jpeg",
+        "restaurant": 8
+      },
+      {
+        "id": 2,
+        "category": {
+          "id": 1,
+          "name": "Platos"
+        },
+        "name": "picante de gallina",
+        "description": "picante de gallina criolla",
+        "price": "30.00",
+        "is_available": true,
+        "created_at": "2025-08-23T23:37:39.719903Z",
+        "imagen": "http://192.168.0.16:8000/media/restaurant_menuimages/picante.png",
+        "restaurant": 8
+      },
+      {
+        "id": 1,
+        "category": {
+          "id": 5,
+          "name": "Plato Extra"
+        },
+        "name": "pure",
+        "description": "pure especial con papa holandesa con mantequilla y miel",
+        "price": "12.00",
+        "is_available": true,
+        "created_at": "2025-08-23T21:51:57.691436Z",
+        "imagen": "http://192.168.0.16:8000/media/restaurant_menuimages/imagen_6wvEbiV.jpg",
+        "restaurant": 8
+      }
+    ],
+    "offers": [
+      {
+        "id": 4,
+        "name": "Oferta Navidad",
+        "description": "Oferta Navideña",
+        "percentage": 50,
+        "start_date": "2025-12-01",
+        "end_date": "2025-12-31",
+        "status": "active",
+        "restaurant": 8
+      },
+      {
+        "id": 2,
+        "name": "Oferta Primavera",
+        "description": "Oferta por Primavera y la feria exposición",
+        "percentage": 40,
+        "start_date": "2025-09-01",
+        "end_date": "2025-09-30",
+        "status": "active",
+        "restaurant": 8
+      },
+      {
+        "id": 3,
+        "name": "Oferta Verano",
+        "description": "Descuento por finalización de temporada",
+        "percentage": 10,
+        "start_date": "2025-08-27",
+        "end_date": "2025-08-30",
+        "status": "inactive",
+        "restaurant": 8
+      }
+    ],
+    "reviews": [],
+    "active_offer": {
+      "id": 2,
+      "name": "Oferta Primavera",
+      "description": "Oferta por Primavera y la feria exposición",
+      "percentage": 40,
+      "start_date": "2025-09-01",
+      "end_date": "2025-09-30",
+      "status": "active",
+      "restaurant": 8
+    },
+    "diasAtencion": {
+      "lunes": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "domingo": ["12:00", "13:00", "14:00"],
+      "miércoles": ["12:00", "13:00", "14:00", "19:00", "20:00"],
+      "jueves": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
+      "viernes": [
+        "12:00",
+        "13:00",
+        "14:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ],
+      "sábado": ["13:00", "14:00", "15:00", "20:00", "21:00", "22:00"],
+      "martes": []
+    },
+    "maxPersonasPorMesa": 6
+  }
+]
