@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReservaModal from "./ReservaModal";
 import "./StickyMenu.css";
 
-export default function StickyMenu({ restaurante }) {
+export default function StickyMenu() {
     const [isSticky, setIsSticky] = useState(false);
     const [activeSection, setActiveSection] = useState("descripcion");
 
@@ -30,7 +30,7 @@ export default function StickyMenu({ restaurante }) {
                     }
                 });
             },
-            { threshold: 0.4 } // visible al menos un 40%
+            { threshold: 0.8 } // visible al menos un 40%
         );
 
         sections.forEach((section) => observer.observe(section));
@@ -52,6 +52,12 @@ export default function StickyMenu({ restaurante }) {
                     <div className="menu-left">
                         <ul>
                             <li
+                                onClick={() => scrollTo("hero")}
+                                className={activeSection === "hero" ? "active" : ""}
+                            >
+                                Fotos
+                            </li>
+                            <li
                                 onClick={() => scrollTo("descripcion")}
                                 className={activeSection === "descripcion" ? "active" : ""}
                             >
@@ -69,11 +75,21 @@ export default function StickyMenu({ restaurante }) {
                             >
                                 Opiniones
                             </li>
+
                         </ul>
                     </div>
 
                     <div className="menu-right">
-                        <ReservaModal restaurante={restaurante} />
+                        <ul>
+                            <li
+                                onClick={() => scrollTo("reservar")}
+                                className={activeSection === "reservar" ? "active" : ""}
+                            >
+                                Reservar una mesa
+                            </li>
+
+                        </ul>
+
                     </div>
                 </div>
             </div>

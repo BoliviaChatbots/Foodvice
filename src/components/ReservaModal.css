@@ -7,6 +7,8 @@
   --font-family: "Epunda Sans", sans-serif;
 }
 
+/* */
+
 /* Contenedor del bloque */
 .reserva-block {
   position: relative;
@@ -30,8 +32,8 @@
 .res-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
+  gap: 5px;
+  padding: 5px 10px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
@@ -89,12 +91,10 @@
 /* responsive: en móviles, modal centrado y fijo */
 @media (max-width: 768px) {
   .reserva-modal {
-    /* position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 92%; */
     max-width: 350px;
+  }
+  .reserva-section {
+    padding: 0;
   }
 }
 

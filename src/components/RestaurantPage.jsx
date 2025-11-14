@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 // import restos from "../data/resto.json";
 import restos from "../data/apiResto.json";
+import reviews from "../data/comenta.json";
 import { nameToURL } from "../services/utils";
 import RestaurantHero from "../components/RestaurantHero";
 import RestaurantGallery from "../components/RestaurantGallery";
@@ -11,6 +12,8 @@ import StickyMenu from "../components/StickyMenu";
 import "./RestaurantPage.css";
 import RestaurantMenu from "./RestaurantMenu";
 import RestaurantDescription from "./RestaurantDescription";
+import RestaurantReviews from "./RestaurantReviews";
+import ReservaModal from "./ReservaModal";
 
 export default function RestaurantPage() {
     const { url } = useParams();
@@ -112,7 +115,6 @@ export default function RestaurantPage() {
                 </div>
             </section>
             <div id="descripcion" >
-
             </div>
             {/* 📌 MENÚ STICKY */}
             <div
@@ -120,7 +122,7 @@ export default function RestaurantPage() {
                 className={`sticky-menu-container ${isSticky ? "active" : ""}`}
             >
                 <div className="container" >
-                    <StickyMenu restaurante={restaurant} />
+                    <StickyMenu />
                 </div>
             </div>
 
@@ -132,26 +134,25 @@ export default function RestaurantPage() {
                         <section >
                             <RestaurantDescription restaurante={restaurant} />
                         </section>
-
+                        <div className="id-menu"></div>
                         <section >
                             <RestaurantMenu restaurante={restaurant} />
                         </section>
-
-                        <section id="opiniones">
-                            <h2>Opiniones</h2>
-                            <p>Comentarios y opiniones de los clientes.</p>
+                        <div className="id-menu"></div>
+                        <section>
+                            <RestaurantReviews reviews={reviews} />
                         </section>
                     </div>
 
                     {/* COLUMNA DERECHA */}
-                    <div className="right-column">
+                    <div className="right-column" id="reservar">
                         <section className="reserva-section">
-                            <h2>Reserva</h2>
-                            <p>Aquí irá el componente de reservas.</p>
+                            <h2>Reservar atención:</h2>
+                            <ReservaModal data={restaurant} />
                         </section>
 
                         <section className="horario-section">
-                            <h2>Horario</h2>
+                            <h2>Horario:</h2>
                             <p>Lunes a Domingo: 12:00 - 23:00</p>
                         </section>
 

@@ -48,10 +48,7 @@ export default function Navbar() {
                                         alt={user.name}
                                         className="user-avatar-img"
                                     />
-
                                 </div>
-
-
                             </>
                         ) : (
                             <>
@@ -67,9 +64,6 @@ export default function Navbar() {
 
                                 </div>
                             </>
-                            // <button className="btn-primary" onClick={openLogin}>
-                            //     Ingresar
-                            // </button>
                         )}
                     </li>
                 </ul>

@@ -38,8 +38,89 @@ const getLocalDateISO = (date = new Date()) => {
     const d = String(date.getDate()).padStart(2, "0");
     return `${y}-${m}-${d}`;
 };
+function formatearRestaurante(restaurante) {
+    // Mapeo de días por número → nombre en minúsculas
+    const diasSemana = [
+        "lunes",
+        "martes",
+        "miércoles",
+        "jueves",
+        "viernes",
+        "sábado",
+        "domingo"
+    ];
 
-export default function ReservaModal({ restaurante }) {
+    // Inicializar estructura vacía
+    const diasAtencion = {
+        lunes: [],
+        martes: [],
+        miércoles: [],
+        jueves: [],
+        viernes: [],
+        sábado: [],
+        domingo: []
+    };
+
+    // Función que convierte HH:MM:SS → HH:MM
+    // const toHour = (time) => time.slice(0, 5);
+
+    // Función que genera horas completas entre start y end
+    const generarHoras = (start, end) => {
+        const result = [];
+
+        let [sh, sm] = start.split(":").map(Number);
+        let [eh, em] = end.split(":").map(Number);
+
+        // Si termina en 23:59:59 → se asigna 24:00
+        if (end === "23:59:59") {
+            eh = 24;
+            em = 0;
+        }
+
+        // Si el inicio tiene minutos > 0, subimos a la siguiente hora
+        if (sm > 0) sh++;
+
+        for (let h = sh; h <= eh; h++) {
+            // Última hora es exactamente 24:00
+            if (h === 24 && em === 0) {
+                result.push("24:00");
+
+            } else {
+                result.push(`${String(h).padStart(2, "0")}:00`);
+            }
+        }
+
+        return result;
+    };
+
+    // Agrupar bloques por día
+    restaurante.opening_hours.forEach((item) => {
+        const dia = diasSemana[item.day];
+        const horas = generarHoras(item.start_time, item.end_time);
+        diasAtencion[dia] = [...diasAtencion[dia], ...horas];
+    });
+
+    // Ordenar horas por día y eliminar duplicados
+    Object.keys(diasAtencion).forEach((dia) => {
+        const ordenadas = [...new Set(diasAtencion[dia])]
+            .sort((a, b) => Number(a.replace(":", "")) - Number(b.replace(":", "")));
+
+        diasAtencion[dia] = ordenadas;
+    });
+
+    // Retornar el objeto original + diasAtencion
+    return {
+        ...restaurante,
+        diasAtencion
+    };
+}
+
+
+export default function ReservaModal({ data }) {
+    const restaurante = formatearRestaurante(data);
+
+    console.log(restaurante.diasAtencion);
+
     const [selFecha, setSelFecha] = useState("");
     const [selHora, setSelHora] = useState("");
     const [selPersonas, setSelPersonas] = useState("");

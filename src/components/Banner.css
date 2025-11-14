@@ -185,7 +185,7 @@
   }
 
   .banner {
-    background: var(--ccdark);
+    background: var(--colormaster);
     padding: 10px; /* 🔸 Reduce padding */
     border-radius: 0; /* 🔸 Quita bordes redondeados */
     width: 100%; /* 🔸 Ocupa todo el ancho del viewport */

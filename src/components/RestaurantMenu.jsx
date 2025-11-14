@@ -6,7 +6,7 @@ export default function RestaurantMenu({ restaurante }) {
 
     if (!restaurante || !restaurante.menu_items || restaurante.menu_items.length === 0) {
         return (
-            <section id="menu" className="restaurant-menu">
+            <section className="restaurant-menu">
                 <h2>Menú</h2>
                 <p className="no-menu">Este restaurante aún no tiene un menú disponible.</p>
             </section>
@@ -52,6 +52,8 @@ export default function RestaurantMenu({ restaurante }) {
                     </div>
                 </div>
             ))}
+
+            <div id="opiniones" ></div>
         </div>
     );
 }

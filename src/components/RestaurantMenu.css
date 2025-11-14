@@ -12,7 +12,7 @@
 }
 
 .menu-category {
-  margin-bottom: 40px;
+  margin-bottom: 5px;
 }
 
 .category-title {
@@ -70,6 +70,7 @@
   font-weight: bold;
   margin-bottom: 8px;
   color: #333;
+  text-transform: capitalize;
 }
 
 .menu-description {

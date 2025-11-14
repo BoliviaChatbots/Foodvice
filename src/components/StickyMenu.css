@@ -1,11 +1,21 @@
 /* Contenedor principal */
 .sticky-wrapper {
+  padding: 10px 0px;
   position: relative;
   background: var(--colorbla);
   transition: all 0.3s ease;
+
+  /* Inicialmente oculto 
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;  */
 }
 
 .sticky-wrapper.fixed {
+  /* Cuando se activa 
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; */
   position: fixed;
   top: 0;
   left: 0;
@@ -54,12 +64,32 @@
 }
 
 /* Menú izquierdo */
+.menu-right li,
 .menu-left ul {
   display: flex;
-  gap: 2rem;
+  gap: 10px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.menu-right li {
+  background: none;
+  border: 2px solid var(--colormaster, #12676a);
+  color: var(--colormaster, #12676a);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-right li:hover {
+  background: var(--colormaster, #12676a);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .menu-left li {
@@ -102,24 +132,64 @@
 
 /* Responsive - centrado en pantallas pequeñas */
 @media (max-width: 992px) {
+  .sticky-wrapper .menu-left li:first-child,
+  .sticky-wrapper .menu-right {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
   .sticky-menu {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;
+    padding: 0px;
+    gap: 8px;
   }
 
   .menu-left ul {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 8px;
   }
 
   .menu-left li {
-    font-size: 0.95rem;
+    font-size: 14px;
+    padding: 8px 5px;
   }
 
   .menu-right {
     justify-content: center;
   }
+}
+
+/* Oculta el botón de reserva cuando el menú NO es sticky */
+.sticky-wrapper:not(.fixed) .menu-right {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Muestra el botón cuando el menú se fija */
+.sticky-wrapper.fixed .menu-right {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: all 0.4s ease;
+}
+
+/* Oculta el ítem "Fotos" (solo ese) cuando el menú no es sticky */
+.sticky-wrapper:not(.fixed) .menu-left li:first-child {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Muestra el ítem "Fotos" cuando el menú se fija */
+.sticky-wrapper.fixed .menu-left li:first-child {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: all 0.4s ease;
 }

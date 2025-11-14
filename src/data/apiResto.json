@@ -311,23 +311,45 @@
       "status": "active",
       "restaurant": 8
     },
-    "diasAtencion": {
-      "lunes": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
-      "domingo": ["12:00", "13:00", "14:00"],
-      "miércoles": ["12:00", "13:00", "14:00", "19:00", "20:00"],
-      "jueves": ["12:00", "13:00", "14:00", "19:00", "20:00", "21:00"],
-      "viernes": [
-        "12:00",
-        "13:00",
-        "14:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00"
-      ],
-      "sábado": ["13:00", "14:00", "15:00", "20:00", "21:00", "22:00"],
-      "martes": []
-    },
+
+    "opening_hours": [
+      {
+        "id": 53,
+        "day": 0,
+        "day_display": "Lunes",
+        "start_time": "00:00:00",
+        "end_time": "05:00:00",
+        "order": 1,
+        "restaurant": 8
+      },
+      {
+        "id": 54,
+        "day": 1,
+        "day_display": "Martes",
+        "start_time": "18:00:00",
+        "end_time": "23:59:59",
+        "order": 1,
+        "restaurant": 8
+      },
+      {
+        "id": 55,
+        "day": 3,
+        "day_display": "Jueves",
+        "start_time": "20:00:00",
+        "end_time": "23:59:59",
+        "order": 1,
+        "restaurant": 8
+      },
+      {
+        "id": 56,
+        "day": 5,
+        "day_display": "Sábado",
+        "start_time": "21:00:00",
+        "end_time": "23:59:59",
+        "order": 1,
+        "restaurant": 8
+      }
+    ],
     "maxPersonasPorMesa": 6
   }
 ]

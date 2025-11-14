@@ -3,17 +3,45 @@
     "usuario": "Carlos",
     "comentario": "Excelente comida y servicio.",
     "puntuacion": 5,
-    "fecha": "2025-09-02T12:00:00Z"
+    "imagen": "/cardslider/user-1.jpg",
+    "fotos": [
+      {
+        "id": 17,
+        "imagen": "/restaurantes/1/food-5.jpg",
+        "restaurant": 8
+      },
+      {
+        "id": 18,
+        "imagen": "/restaurantes/1/food-1.jpg",
+        "restaurant": 8
+      }
+    ],
+    "fecha": "2025-10-02T12:00:00Z"
   },
   {
     "usuario": "Lucía",
+    "imagen": "/cardslider/user-0.jpg",
+    "fotos": [
+      {
+        "id": 17,
+        "imagen": "/restaurantes/1/food-3.jpg",
+        "restaurant": 8
+      },
+      {
+        "id": 18,
+        "imagen": "/restaurantes/1/food-2.jpg",
+        "restaurant": 8
+      }
+    ],
     "comentario": "La carne estaba perfecta, volveré pronto.",
-    "puntuacion": 4,
-    "fecha": "2025-09-05T18:30:00Z"
+    "puntuacion": 5,
+    "fecha": "2025-09-25T18:30:00Z"
   },
   {
     "usuario": "Diego",
-    "comentario": "Buen ambiente, aunque un poco caro.",
+    "titulo": "Ambiente muy pequeño",
+    "comentario": "Buen ambiente pero no tenia mucho espacio comimos muy incomodos ademas un poco caro.",
+    "imagen": "/cardslider/user-3.jpg",
     "puntuacion": 4,
     "fecha": "2025-09-07T20:00:00Z"
   }

@@ -33,11 +33,13 @@ export default function RestaurantGallery({ images = [] }) {
 
                         {/* ℹ️ Info de la imagen */}
                         <div className="img-info">
+
                             {img.name && <span className="nombre">{img.name}</span>}
-                            {img.price && <span className="precio">${img.price}</span>}
-                            {img.description && (
+                            {img.price && <span className="precio">Bs {img.price}</span>}
+
+                            {/* {img.description &&
                                 <span className="descripcion">{img.description}</span>
-                            )}
+                            } */}
                         </div>
                     </div>
                 ))}
@@ -56,15 +58,20 @@ export default function RestaurantGallery({ images = [] }) {
                     />
 
                     <div className="lightbox-info">
-                        {images[selectedIndex].name && (
-                            <h3>{images[selectedIndex].name}</h3>
-                        )}
-                        {images[selectedIndex].price && (
-                            <p>💰 {images[selectedIndex].price}</p>
-                        )}
-                        {images[selectedIndex].description && (
-                            <p>{images[selectedIndex].description}</p>
-                        )}
+                        <div className="img-info-row">
+
+                            {images[selectedIndex].name && (
+                                <h3>{images[selectedIndex].name}</h3>
+                            )}
+                            {images[selectedIndex].price && (
+                                <p>Bs {images[selectedIndex].price}</p>
+                            )}
+                        </div>
+                        <div className="img-info-row">
+                            {images[selectedIndex].description && (
+                                <p>{images[selectedIndex].description}</p>
+                            )}
+                        </div>
                     </div>
 
                     <span className="nav next" onClick={showNext}>❯</span>
