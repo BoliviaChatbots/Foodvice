@@ -1,10 +1,10 @@
 // src/pages/RestaurantPage.jsx import { useMemo } from "react";
 import React, { useEffect, useState, useRef, useMemo } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+//import { useParams, useNavigate } from "react-router-dom";
 // import restos from "../data/resto.json";
-import restos from "../data/apiResto.json";
+// import restos from "../data/apiResto.json"; // datos estaticos desde un archivo
 import reviews from "../data/comenta.json";
-import { nameToURL } from "../services/utils";
+//import { nameToURL } from "../services/utils"; // para convertir el nombre a url valido
 import RestaurantHero from "../components/RestaurantHero";
 import RestaurantGallery from "../components/RestaurantGallery";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -16,8 +16,8 @@ import RestaurantReviews from "./RestaurantReviews";
 import ReservaModal from "./ReservaModal";
 
 export default function RestaurantPage() {
-    const { url } = useParams();
-    const navigate = useNavigate();
+    //const { url } = useParams(); // es el nombre del restaurante formateado con guiones y sin espacios
+    //const navigate = useNavigate(); // si no pilla el restaurante se va a buscar de nuevo
 
     const [restaurant, setRestaurant] = useState(null);
     // const [imagenes, setImagenes] = useState([]);
@@ -26,18 +26,33 @@ export default function RestaurantPage() {
     const descripcionRef = useRef(null);
     const stickyContainerRef = useRef(null);
 
-    // Buscar restaurante en resto.json usando nameToURL
+    // Simular carga de API (apiResto.json)
     useEffect(() => {
-        const found = restos.find((r) => nameToURL(r.name) === url);
-        console.log("FOUND: ", found);
+        const fetchRestaurant = async () => {
+            try {
+                const response = await fetch(`http://192.168.0.16:8000/api/restaurants/7`); // estático
+                const data = await response.json();
+                setRestaurant(data);
+                // setImagenes(data);
+            } catch (error) {
+                console.error("Error cargando restaurante:", error);
+            }
+        };
+        fetchRestaurant();
+    }, []);
 
-        if (!found) {
-            console.warn("Restaurante no encontrado:", url);
-            navigate("/restaurants");
-            return;
-        }
-        setRestaurant(found);
-    }, [url, navigate]);
+    // Buscar restaurante en resto.json usando nameToURL
+    // useEffect(() => {
+    //     const found = restos.find((r) => nameToURL(r.name) === url);
+    //     console.log("FOUND: ", found);
+
+    //     if (!found) {
+    //         console.warn("Restaurante no encontrado:", url);
+    //         navigate("/restaurants");
+    //         return;
+    //     }
+    //     setRestaurant(found);
+    // }, [url, navigate]);
 
     // ✅ Generar un solo array con TODAS las imágenes
     const allImages = useMemo(() => {
@@ -66,23 +81,6 @@ export default function RestaurantPage() {
 
         return images;
     }, [restaurant]);
-
-
-
-
-    // // Simular carga de API (apiResto.json)
-    // useEffect(() => {
-    //     const fetchImages = async () => {
-    //         try {
-    //             const response = await fetch("http://192.168.0.16:8000/api/restaurants/8/"); // estático
-    //             const data = await response.json();
-    //             setImagenes(data);
-    //         } catch (error) {
-    //             console.error("Error cargando imágenes:", error);
-    //         }
-    //     };
-    //     fetchImages();
-    // }, []);
 
     // Sticky activado cuando descripción desaparece del viewport
     useEffect(() => {

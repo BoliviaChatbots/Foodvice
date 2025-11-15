@@ -4,7 +4,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(2px);
-  z-index: 40;
+  z-index: 150;
   animation: fadeIn 0.4s ease forwards;
 }
 .overlay.closing {
