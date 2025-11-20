@@ -1,13 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useLoginStore from "../store/useLoginStore";
 
 import "./Navbar.css";
 
 export default function Navbar() {
+    const navigate = useNavigate();
     const { user, openLogin, openAvatar } = useLoginStore();
     // 👇 función para abrir el chat en una nueva pestaña
     const handleChatClick = () => {
-        window.open("http://192.168.0.6/murochat/public/", "_blank");
+        navigate(`/blog`);
     };
 
     return (
@@ -22,7 +23,7 @@ export default function Navbar() {
                 <ul>
                     <li>
                         <div className="user-info" onClick={handleChatClick}>
-                            <span className="user-name-icon">Chat online</span>
+                            <span className="user-name-icon">Blog</span>
                             <box-icon
                                 type="regular"
                                 className="user-avatar"

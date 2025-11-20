@@ -1,0 +1,38 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "¿Cómo puedo cambiar mi reserva?",
+      "body": "Quiero modificar la fecha y hora de mi reserva. ¿Es posible hacerlo desde la página?",
+      "createdAt": "2025-01-10T12:30:00",
+      "answers": [
+        {
+          "id": 101,
+          "author": "Admin",
+          "body": "Sí, puedes modificar tu reserva desde el panel de usuario.",
+          "createdAt": "2025-01-11T09:15:00",
+          "photos": ["/cardslider/user-0.jpg", "/cardslider/user-1.jpg"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "¿Puedo cancelar una reserva sin penalización?",
+      "body": "Necesito cancelar una reserva que hice ayer. ¿Hay algún costo?",
+      "createdAt": "2025-01-12T14:10:00",
+      "answers": []
+    }
+  ],
+  "faq": [
+    {
+      "id": 1,
+      "question": "¿Puedo reservar en Maison Umami en estos momentos?",
+      "answer": "Sí, puedes reservar directamente desde la página de reservas."
+    },
+    {
+      "id": 2,
+      "question": "¿Qué nota tiene Maison Umami?",
+      "answer": "Actualmente tiene una calificación promedio de 4.7 estrellas."
+    }
+  ]
+}

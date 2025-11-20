@@ -1,6 +1,29 @@
 import React from "react";
 import "./RestaurantDescription.css";
 
+function formatFechaBolivia(fechaString) {
+    const fecha = new Date(fechaString);
+
+    const formatter = new Intl.DateTimeFormat("es-BO", {
+        timeZone: "America/La_Paz",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+    // Obtener partes por separado
+    const partes = formatter.formatToParts(fecha);
+    const dia = partes.find((p) => p.type === "day").value;
+    const mes = partes.find((p) => p.type === "month").value;
+    const año = partes.find((p) => p.type === "year").value;
+
+    const diaFormateado = Number(dia) === 1 ? "1º" : dia;
+
+    return `${diaFormateado} de ${mes} de ${año}`;
+}
+
+
+
 export default function RestaurantDescription({ restaurante }) {
     if (!restaurante) return null;
 
@@ -40,10 +63,10 @@ export default function RestaurantDescription({ restaurante }) {
 
                             <div className="offer-dates">
                                 <p>
-                                    <strong>Desde:</strong> {offer.start_date}
+                                    <strong>Desde:</strong> {formatFechaBolivia(offer.start_date)}
                                 </p>
                                 <p>
-                                    <strong>Hasta:</strong> {offer.end_date}
+                                    <strong>Hasta:</strong> {formatFechaBolivia(offer.end_date)}
                                 </p>
                             </div>
                         </div>

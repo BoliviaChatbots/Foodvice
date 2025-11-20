@@ -21,6 +21,7 @@ import EditUser from "./components/EditUser";
 import LoginAvatar from "./components/LoginAvatar";
 import FilterBar from "./components/FilterBar";
 import { Restaurante } from "./pages/Restaurante";
+import { Blog } from "./pages/Blog";
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
         <Route path="/restaurants" element={<Restaurantes />} />
         <Route path="/showroom" element={<Showing />} />
         <Route path="/restaurant/:url" element={<Restaurante />} />
-        <Route path="/login" element={<LoginRegister />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
     </>
