@@ -89,7 +89,7 @@ textarea {
   cursor: pointer;
 }
 
-.preview-row {
+/* .preview-row {
   display: flex;
   gap: 8px;
   margin-top: 8px;
@@ -101,7 +101,7 @@ textarea {
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid #ccc;
-}
+} */
 
 @keyframes fadeIn {
   from {

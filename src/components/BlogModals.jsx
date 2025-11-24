@@ -1,148 +1,106 @@
-// Contiene ambos modales: Crear Pregunta y Responder Pregunta
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./BlogModals.css";
 
-export default function BlogModals() {
-    const [showQModal, setShowQModal] = useState(false);
-    const [showAnswerModal, setShowAnswerModal] = useState(false);
+export default function BlogModals({ type, question, user, onClose, onCreateQuestion, onAddAnswer }) {
     const [answerPhotos, setAnswerPhotos] = useState([]);
+    const [newQuestion, setNewQuestion] = useState({ title: "", body: "", username: "", email: "" });
+    const [newAnswer, setNewAnswer] = useState({ body: "", author: "" });
+    const fileInputFoto = useRef(null);
 
-    const [newQuestion, setNewQuestion] = useState({
-        title: "",
-        body: "",
-        username: "",
-        email: "",
-    });
+    useEffect(() => {
+        if (user && type === "create") setNewQuestion({ title: "", body: "", username: user.first_name || user.name || "", email: user.email || "" });
+        else if (type === "create") setNewQuestion({ title: "", body: "", username: "", email: "" });
+        if (user && type === "answer") setNewAnswer({ body: "", author: user.first_name || user.name || "" });
+        else if (type === "answer") setNewAnswer({ body: "", author: "" });
+    }, [user, type]);
 
-    const [newAnswer, setNewAnswer] = useState({
-        body: "",
-        author: "",
-    });
+    useEffect(() => () => { answerPhotos.forEach(p => URL.revokeObjectURL(p.preview)); }, [answerPhotos]);
 
-    const handleQChange = (e) => {
-        const { name, value } = e.target;
-        setNewQuestion({ ...newQuestion, [name]: value });
+    const handleFileInput = e => {
+        const files = Array.from(e.target.files || []);
+        if (!files.length) return;
+        const allowed = files.slice(0, 3 - answerPhotos.length);
+        const withPreview = allowed.map(file => ({ file, preview: URL.createObjectURL(file) }));
+        setAnswerPhotos(prev => [...prev, ...withPreview]);
+        e.target.value = "";
     };
 
-    const handleAnswerChange = (e) => {
-        const { name, value } = e.target;
-        setNewAnswer({ ...newAnswer, [name]: value });
-    };
-
-    const handleAnswerPhotos = (e) => {
-        const files = Array.from(e.target.files).slice(0, 3);
-        setAnswerPhotos(files);
+    const removePhotoAtIndex = index => {
+        setAnswerPhotos(prev => {
+            const item = prev[index];
+            if (item) URL.revokeObjectURL(item.preview);
+            return prev.filter((_, i) => i !== index);
+        });
+        if (fileInputFoto.current) fileInputFoto.current.value = "";
     };
 
     const submitQuestion = () => {
-        console.log("Nueva pregunta registrada:", newQuestion);
-        setShowQModal(false);
+        if (!newQuestion.title.trim() || !newQuestion.body.trim()) return;
+        onCreateQuestion({ title: newQuestion.title.trim(), body: newQuestion.body.trim(), username: newQuestion.username, email: newQuestion.email });
+        setNewQuestion({ title: "", body: "", username: user?.first_name || "", email: user?.email || "" });
+        onClose();
     };
 
     const submitAnswer = () => {
-        console.log("Nueva respuesta registrada:", newAnswer, answerPhotos);
-        setShowAnswerModal(false);
+        if (!newAnswer.body.trim()) return;
+        onAddAnswer({ body: newAnswer.body.trim(), author: user?.first_name || user?.name || "Anónimo" }, answerPhotos.map(p => p.file));
+        answerPhotos.forEach(p => URL.revokeObjectURL(p.preview));
+        setAnswerPhotos([]);
+        if (fileInputFoto.current) fileInputFoto.current.value = "";
+        setNewAnswer({ body: "", author: user?.first_name || user?.name || "" });
+        onClose();
     };
 
     return (
-        <>
-            {/* Botones de prueba para abrir modales */}
-            <button className="open-btn" onClick={() => setShowQModal(true)}>Crear Pregunta</button>
-            <button className="open-btn" onClick={() => setShowAnswerModal(true)}>Responder</button>
-
-            {/* Modal Crear Pregunta */}
-            {showQModal && (
-                <div className="modal-overlay" onClick={() => setShowQModal(false)}>
-                    <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-card" onClick={e => e.stopPropagation()}>
+                {type === "create" && (
+                    <>
                         <h3 className="modal-title">Crear nueva pregunta</h3>
-
                         <label>Título</label>
-                        <input
-                            type="text"
-                            name="title"
-                            value={newQuestion.title}
-                            onChange={handleQChange}
-                            placeholder="Escribe un título"
-                        />
-
+                        <input type="text" value={newQuestion.title} onChange={e => setNewQuestion({ ...newQuestion, title: e.target.value })} placeholder="Escribe un título" />
                         <label>Pregunta</label>
-                        <textarea
-                            name="body"
-                            value={newQuestion.body}
-                            onChange={handleQChange}
-                            placeholder="Describe tu pregunta"
-                        ></textarea>
-
+                        <textarea value={newQuestion.body} onChange={e => setNewQuestion({ ...newQuestion, body: e.target.value })} placeholder="Describe tu pregunta" />
                         <label>Tu nombre</label>
-                        <input
-                            type="text"
-                            name="username"
-                            value={newQuestion.username}
-                            onChange={handleQChange}
-                            placeholder="Nombre completo"
-                        />
-
+                        <input type="text" value={newQuestion.username} readOnly className="readonly-input" />
                         <label>Correo</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={newQuestion.email}
-                            onChange={handleQChange}
-                            placeholder="correo@ejemplo.com"
-                        />
-
+                        <input type="email" value={newQuestion.email} readOnly className="readonly-input" />
                         <div className="modal-actions">
-                            <button className="cancel-btn" onClick={() => setShowQModal(false)}>Cancelar</button>
+                            <button className="cancel-btn" onClick={() => { setNewQuestion({ title: "", body: "", username: user?.first_name || "", email: user?.email || "" }); onClose(); }}>Cancelar</button>
                             <button className="submit-btn" onClick={submitQuestion}>Publicar</button>
                         </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Modal Responder */}
-            {showAnswerModal && (
-                <div className="modal-overlay" onClick={() => setShowAnswerModal(false)}>
-                    <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+                    </>
+                )}
+                {type === "answer" && (
+                    <>
                         <h3 className="modal-title">Responder pregunta</h3>
-
+                        {question && <div className="selected-question-box"><h4>{question.title}</h4><p>{question.body}</p></div>}
                         <label>Tu nombre</label>
-                        <input
-                            name="author"
-                            type="text"
-                            value={newAnswer.author}
-                            onChange={handleAnswerChange}
-                        />
-
+                        <input type="text" value={newAnswer.author} readOnly className="readonly-input" />
                         <label>Respuesta</label>
-                        <textarea
-                            name="body"
-                            value={newAnswer.body}
-                            onChange={handleAnswerChange}
-                        ></textarea>
-
-                        <label>Agregar fotos (máx 3)</label>
-                        <input type="file" accept="image/*" multiple onChange={handleAnswerPhotos} />
-
-                        {answerPhotos.length > 0 && (
-                            <div className="preview-row">
-                                {answerPhotos.map((file, i) => (
-                                    <img
-                                        key={i}
-                                        src={URL.createObjectURL(file)}
-                                        alt="preview"
-                                        className="preview-img"
-                                    />
+                        <textarea value={newAnswer.body} onChange={e => setNewAnswer({ ...newAnswer, body: e.target.value })} placeholder="Escribe tu respuesta aquí" />
+                        <label>Fotos (máximo 3):</label>
+                        <div className="photo-upload">
+                            <input ref={fileInputFoto} type="file" accept="image/*" multiple style={{ display: "none" }} disabled={answerPhotos.length >= 3} onChange={handleFileInput} />
+                            <button type="button" className="upload-btn" onClick={() => fileInputFoto.current && fileInputFoto.current.click()} disabled={answerPhotos.length >= 3}>
+                                📷 Subir fotos ({answerPhotos.length}/3)
+                            </button>
+                            <div className="photo-previews">
+                                {answerPhotos.map((item, index) => (
+                                    <div className="preview-item" key={item.preview}>
+                                        <img src={item.preview} alt={`preview-${index}`} />
+                                        <button type="button" className="remove-photo" onClick={() => removePhotoAtIndex(index)}>✕</button>
+                                    </div>
                                 ))}
                             </div>
-                        )}
-
+                        </div>
                         <div className="modal-actions">
-                            <button className="cancel-btn" onClick={() => setShowAnswerModal(false)}>Cancelar</button>
+                            <button className="cancel-btn" onClick={() => { answerPhotos.forEach(p => URL.revokeObjectURL(p.preview)); setAnswerPhotos([]); setNewAnswer({ body: "", author: user?.first_name || "" }); if (fileInputFoto.current) fileInputFoto.current.value = ""; onClose(); }}>Cancelar</button>
                             <button className="submit-btn" onClick={submitAnswer}>Enviar respuesta</button>
                         </div>
-                    </div>
-                </div>
-            )}
-        </>
+                    </>
+                )}
+            </div>
+        </div>
     );
 }
