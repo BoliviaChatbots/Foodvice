@@ -334,12 +334,16 @@ export default function BlogPage() {
                                             <span style={{ fontWeight: 500, fontStyle: "italic", opacity: 0.8 }}>{highlightText(userName, search)}</span>: {highlightText(q.title, search)}
                                         </h4>
 
-                                        <button
+                                        <div className="btn-search-blog" onClick={() => toggleAnswers(q.id)}>
+                                            <span className="btn-search-txt">Ver respuestas ({totalAnswers})</span>
+                                        </div>
+
+                                        {/* <button
                                             className="submit-btn"
                                             onClick={() => toggleAnswers(q.id)}
                                         >
                                             Ver respuestas ({totalAnswers})
-                                        </button>
+                                        </button> */}
                                     </div>
 
                                     <p>{highlightText(q.body, search)}</p>
@@ -348,12 +352,16 @@ export default function BlogPage() {
                                     {openAnswers[q.id] && (
                                         <div className="question-body">
 
-                                            <button
+                                            <div className="btn-search-blog" onClick={(e) => openAnswerModal(q, e)}>
+                                                <span className="btn-search-txt">Agregar Respuesta</span>
+                                            </div>
+
+                                            {/* <button
                                                 className="submit-btn"
                                                 onClick={(e) => openAnswerModal(q, e)}
                                             >
                                                 Agregar Respuesta
-                                            </button>
+                                            </button> */}
 
                                             <div className="answers-block">
 
