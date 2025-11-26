@@ -26,13 +26,18 @@
   "faq": [
     {
       "id": 1,
-      "question": "¿Puedo reservar en Maison Umami en estos momentos?",
-      "answer": "Sí, puedes reservar directamente desde la página de reservas."
+      "question": "¿Cómo puedo registrarme en FoodVice?",
+      "answer": "Para registrarte en FoodVice solo tienes que tener un correo válido y un número de teléfono. Es Gratis!"
     },
     {
       "id": 2,
-      "question": "¿Qué nota tiene Maison Umami?",
-      "answer": "Actualmente tiene una calificación promedio de 4.7 estrellas."
+      "question": "¿Cómo puedo hacer una reservación?",
+      "answer": "Solo tienes que ingresar con tu cuenta, buscar el lugar de tu agrado y marcar la fecha, hora y número de personas. El personal del restaurante se comunicará contigo."
+    },
+    {
+      "id": 3,
+      "question": "¿Cómo consigo descuentos en los restaurantes?",
+      "answer": "Todos nuestros restaurantes tienen paquetes de descuentos en FoodVice. Busca las promociones especiales en el local de tu agrado."
     }
   ]
 }

@@ -208,7 +208,12 @@
 .faq-header {
   display: flex;
   justify-content: space-between;
+  font-weight: 500;
   cursor: pointer;
+}
+.faq-header:hover {
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .faq-answer {
@@ -220,5 +225,12 @@
 @media (max-width: 900px) {
   .blog-layout {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 512px) {
+  .question-header {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
   }
 }
