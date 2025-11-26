@@ -331,7 +331,9 @@ export default function BlogPage() {
 
                                     <div className="question-header">
                                         <h4>
-                                            <span style={{ fontWeight: 500, fontStyle: "italic", opacity: 0.8 }}>{highlightText(userName, search)}</span>: {highlightText(q.title, search)}
+                                            <span style={{ fontWeight: 500, fontStyle: "italic", opacity: 0.8 }}>
+                                                {highlightText(userName, search)}
+                                            </span>: {highlightText(q.title, search)}
                                         </h4>
 
                                         <div className="btn-search-blog" onClick={() => toggleAnswers(q.id)}>
@@ -368,12 +370,22 @@ export default function BlogPage() {
                                                 {visibleAnswers.length > 0 ? (
                                                     visibleAnswers.map(a => (
                                                         <div key={a.id} className="answer-item">
-                                                            <strong>
+
+                                                            <div>
+                                                                <span style={{ fontWeight: 500, fontStyle: "italic", opacity: 0.8 }}>
+                                                                    {usersMap[a.user]?.first_name ||
+                                                                        usersMap[a.user]?.username ||
+                                                                        "Anónimo"}
+                                                                </span>: {highlightText(a.body, search)}
+                                                            </div>
+
+
+                                                            {/* <span style={{ fontWeight: 500, fontStyle: "italic", opacity: 0.8 }}>
                                                                 {usersMap[a.user]?.first_name ||
                                                                     usersMap[a.user]?.username ||
                                                                     "Anónimo"}
-                                                            </strong>
-                                                            <p>{a.body}</p>
+                                                            </span>
+                                                            <p>{highlightText(a.body, search)}</p> */}
 
                                                             <div className="answer-photos">
                                                                 {(a.images || []).map((img, index) => (
